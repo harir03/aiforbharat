@@ -1,0 +1,551 @@
+[
+  {
+    "labour_id": "LA003",
+    "establishment_name": "Sharmas Textiles Pvt Ltd",
+    "registered_address": "Plot 24, Industrial Area, Mangalore 580030",
+    "area_pin": "580030",
+    "employer_pan": "QAHFT9935C",
+    "mobile": "9506448196",
+    "date_of_registration": "2017-04-25"
+  },
+  {
+    "labour_id": "LA011",
+    "establishment_name": "Karnataka Engg Services",
+    "registered_address": "Plot 184, Industrial Area, Shimoga 560011",
+    "area_pin": "560011",
+    "employer_pan": "ITBVU7572I",
+    "mobile": "9326541099",
+    "date_of_registration": "2022-05-17"
+  },
+  {
+    "labour_id": "LA015",
+    "establishment_name": "Mysore Silk Factory",
+    "registered_address": "223 MG Road, Hubli 560034",
+    "area_pin": "560034",
+    "employer_pan": "FZNCB2796E",
+    "mobile": "9950488739",
+    "date_of_registration": "2019-02-20"
+  },
+  {
+    "labour_id": "LA019",
+    "establishment_name": "Deccan Electronic Parts",
+    "registered_address": "307 MG Road, Shimoga 580020",
+    "area_pin": "580020",
+    "employer_pan": "HQPDT9837Y",
+    "mobile": "9610330567",
+    "date_of_registration": "2022-08-23"
+  },
+  {
+    "labour_id": "LA023",
+    "establishment_name": "S India Traders",
+    "registered_address": "Plot 172, Industrial Area, Shimoga 560043",
+    "area_pin": "560043",
+    "employer_pan": "YENPZ9835Y",
+    "mobile": "9865523129",
+    "date_of_registration": "2022-10-28"
+  },
+  {
+    "labour_id": "LA031",
+    "establishment_name": "Mangalore Spice Co",
+    "registered_address": "435 MG Road, Mangalore 560011",
+    "area_pin": "560011",
+    "employer_pan": "BVWCQ9856A",
+    "mobile": "9172972420",
+    "date_of_registration": "2023-07-01"
+  },
+  {
+    "labour_id": "LA035",
+    "establishment_name": "Belgaum Auto Parts",
+    "registered_address": "Plot 145, Industrial Area, Bellary 560011",
+    "area_pin": "560011",
+    "employer_pan": "RGDXG1651T",
+    "mobile": "9550139320",
+    "date_of_registration": "2022-05-14"
+  },
+  {
+    "labour_id": "LA039",
+    "establishment_name": "Shivamogga Wood",
+    "registered_address": "108 MG Road, Shimoga 560058",
+    "area_pin": "560058",
+    "employer_pan": "CWGXT3546I",
+    "mobile": "9749431082",
+    "date_of_registration": "2018-03-25"
+  },
+  {
+    "labour_id": "LA051",
+    "establishment_name": "Hassan Coffee Ltd",
+    "registered_address": "No. 101, KIADB Layout, Shimoga 560001",
+    "area_pin": "560001",
+    "employer_pan": "ULZDX4114I",
+    "mobile": "9861052404",
+    "date_of_registration": "2018-05-10"
+  },
+  {
+    "labour_id": "LA055",
+    "establishment_name": "Mandya Sugar",
+    "registered_address": "Plot 122, Industrial Area, Gulbarga 580020",
+    "area_pin": "580020",
+    "employer_pan": "DKYRX5930M",
+    "mobile": "9995205588",
+    "date_of_registration": "2020-05-22"
+  },
+  {
+    "labour_id": "LA059",
+    "establishment_name": "Davangere Cotton Unit",
+    "registered_address": "Plot 119, Industrial Area, Bangalore 560034",
+    "area_pin": "560034",
+    "employer_pan": "RATUC7965H",
+    "mobile": "9609677794",
+    "date_of_registration": "2016-05-10"
+  },
+  {
+    "labour_id": "LA063",
+    "establishment_name": "Tumkur Plastics Ltd",
+    "registered_address": "173 MG Road, Tumkur 580030",
+    "area_pin": "580030",
+    "employer_pan": "IMBVK1320Y",
+    "mobile": "9508431021",
+    "date_of_registration": "2019-11-14"
+  },
+  {
+    "labour_id": "LA067",
+    "establishment_name": "Bidar Cement",
+    "registered_address": "451 MG Road, Tumkur 570001",
+    "area_pin": "570001",
+    "employer_pan": "LWEGI8449K",
+    "mobile": "9917364173",
+    "date_of_registration": "2021-06-02"
+  },
+  {
+    "labour_id": "LA071",
+    "establishment_name": "Gulbarga Minerals",
+    "registered_address": "6 Market Road, Shimoga 570001",
+    "area_pin": "570001",
+    "employer_pan": "GMCYM5198Y",
+    "mobile": "9280162221",
+    "date_of_registration": "2021-11-05"
+  },
+  {
+    "labour_id": "LA079",
+    "establishment_name": "Bellary Iron Works Ltd",
+    "registered_address": "Plot 31, Industrial Area, Mangalore 570002",
+    "area_pin": "570002",
+    "employer_pan": "WSHAY2402H",
+    "mobile": "9893070706",
+    "date_of_registration": "2022-11-10"
+  },
+  {
+    "labour_id": "LA083",
+    "establishment_name": "Udupi Fish Exports Ltd",
+    "registered_address": "No. 296, KIADB Layout, Bangalore 560058",
+    "area_pin": "560058",
+    "employer_pan": "MSZNH2647G",
+    "mobile": "9366493008",
+    "date_of_registration": "2019-02-20"
+  },
+  {
+    "labour_id": "LA103",
+    "establishment_name": "Hospet Power Ltd",
+    "registered_address": "No. 210, KIADB Layout, Hubli 570002",
+    "area_pin": "570002",
+    "employer_pan": "OOLIE4912S",
+    "mobile": "9350785761",
+    "date_of_registration": "2024-12-05"
+  },
+  {
+    "labour_id": "LA107",
+    "establishment_name": "Gadag Textiles",
+    "registered_address": "19 Market Road, Mangalore 560011",
+    "area_pin": "560011",
+    "employer_pan": "GRHFC2612Y",
+    "mobile": "9576396216",
+    "date_of_registration": "2020-07-06"
+  },
+  {
+    "labour_id": "LA119",
+    "establishment_name": "Bagalkot Sugar Mills Ltd",
+    "registered_address": "No. 121, KIADB Layout, Shimoga 560043",
+    "area_pin": "560043",
+    "employer_pan": "VYCGA6374T",
+    "mobile": "9396225446",
+    "date_of_registration": "2021-12-06"
+  },
+  {
+    "labour_id": "LA202",
+    "establishment_name": "Sirsi Spices",
+    "registered_address": "No. 258, KIADB Layout, Mangalore 570001",
+    "area_pin": "570001",
+    "employer_pan": "GDKCB8344Y",
+    "mobile": "9591819409",
+    "date_of_registration": "2018-02-16"
+  },
+  {
+    "labour_id": "LA206",
+    "establishment_name": "Gokak Falls Power",
+    "registered_address": "Plot 27, Industrial Area, Gulbarga 580030",
+    "area_pin": "580030",
+    "employer_pan": "KWYKX1842J",
+    "mobile": "9216198604",
+    "date_of_registration": "2021-06-01"
+  },
+  {
+    "labour_id": "LA210",
+    "establishment_name": "Business_0",
+    "registered_address": "155 MG Road, Mangalore 560043",
+    "area_pin": "560043",
+    "employer_pan": "PNIFZ1897A",
+    "mobile": "9634063428",
+    "date_of_registration": "2016-12-19"
+  },
+  {
+    "labour_id": "LA214",
+    "establishment_name": "Business_4",
+    "registered_address": "390 MG Road, Gulbarga 580030",
+    "area_pin": "580030",
+    "employer_pan": "DTBYQ8601Y",
+    "mobile": "9603500181",
+    "date_of_registration": "2020-05-20"
+  },
+  {
+    "labour_id": "LA218",
+    "establishment_name": "Business_8",
+    "registered_address": "No. 201, KIADB Layout, Hubli 560011",
+    "area_pin": "560011",
+    "employer_pan": "KGWZP3463K",
+    "mobile": "9700138002",
+    "date_of_registration": "2021-02-13"
+  },
+  {
+    "labour_id": "LA222",
+    "establishment_name": "Business_12",
+    "registered_address": "71 MG Road, Belgaum 580030",
+    "area_pin": "580030",
+    "employer_pan": "ZMHJN3655G",
+    "mobile": "9406084084",
+    "date_of_registration": "2024-05-27"
+  },
+  {
+    "labour_id": "LA226",
+    "establishment_name": "Business_16",
+    "registered_address": "269 MG Road, Shimoga 560011",
+    "area_pin": "560011",
+    "employer_pan": "OSHAJ7825F",
+    "mobile": "9519246503",
+    "date_of_registration": "2020-01-27"
+  },
+  {
+    "labour_id": "LA230",
+    "establishment_name": "Business_20",
+    "registered_address": "No. 165, KIADB Layout, Mysore 580030",
+    "area_pin": "580030",
+    "employer_pan": "MYNUS2293N",
+    "mobile": "9429097422",
+    "date_of_registration": "2020-05-05"
+  },
+  {
+    "labour_id": "LA234",
+    "establishment_name": "Business_24",
+    "registered_address": "Plot 182, Industrial Area, Mysore 570001",
+    "area_pin": "570001",
+    "employer_pan": "FDBES2438Z",
+    "mobile": "9864299201",
+    "date_of_registration": "2017-05-21"
+  },
+  {
+    "labour_id": "LA238",
+    "establishment_name": "Business_28",
+    "registered_address": "304 MG Road, Gulbarga 560034",
+    "area_pin": "560034",
+    "employer_pan": "FYHQP2530Q",
+    "mobile": "9148814238",
+    "date_of_registration": "2018-02-24"
+  },
+  {
+    "labour_id": "LA242",
+    "establishment_name": "Business_32",
+    "registered_address": "2 Market Road, Mysore 560001",
+    "area_pin": "560001",
+    "employer_pan": "MCKLG6781B",
+    "mobile": "9243811545",
+    "date_of_registration": "2022-05-18"
+  },
+  {
+    "labour_id": "LA246",
+    "establishment_name": "Business_36",
+    "registered_address": "62 Market Road, Hubli 575001",
+    "area_pin": "575001",
+    "employer_pan": "JRZPU1436T",
+    "mobile": "9258672959",
+    "date_of_registration": "2017-09-16"
+  },
+  {
+    "labour_id": "LA250",
+    "establishment_name": "Business_40",
+    "registered_address": "Plot 36, Industrial Area, Mysore 580020",
+    "area_pin": "580020",
+    "employer_pan": "JLGMF9824I",
+    "mobile": "9784987769",
+    "date_of_registration": "2022-09-25"
+  },
+  {
+    "labour_id": "LA254",
+    "establishment_name": "Business_44",
+    "registered_address": "Plot 103, Industrial Area, Mysore 580020",
+    "area_pin": "580020",
+    "employer_pan": "UOTEW7643N",
+    "mobile": "9107333788",
+    "date_of_registration": "2022-06-02"
+  },
+  {
+    "labour_id": "LA258",
+    "establishment_name": "Business_48",
+    "registered_address": "8 Market Road, Bellary 560001",
+    "area_pin": "560001",
+    "employer_pan": "LRSMX8298Z",
+    "mobile": "9822378827",
+    "date_of_registration": "2021-11-20"
+  },
+  {
+    "labour_id": "LA262",
+    "establishment_name": "Business_52",
+    "registered_address": "Plot 173, Industrial Area, Bangalore 560001",
+    "area_pin": "560001",
+    "employer_pan": "KTWAF2653T",
+    "mobile": "9679562681",
+    "date_of_registration": "2022-11-28"
+  },
+  {
+    "labour_id": "LA266",
+    "establishment_name": "Business_56",
+    "registered_address": "Plot 155, Industrial Area, Bangalore 570002",
+    "area_pin": "570002",
+    "employer_pan": "CLJNV1844I",
+    "mobile": "9614745610",
+    "date_of_registration": "2023-01-01"
+  },
+  {
+    "labour_id": "LA270",
+    "establishment_name": "Business_60",
+    "registered_address": "251 MG Road, Hubli 580020",
+    "area_pin": "580020",
+    "employer_pan": "ZQMEU3773E",
+    "mobile": "9542802779",
+    "date_of_registration": "2023-10-20"
+  },
+  {
+    "labour_id": "LA274",
+    "establishment_name": "Business_64",
+    "registered_address": "No. 244, KIADB Layout, Belgaum 560001",
+    "area_pin": "560001",
+    "employer_pan": "SCVQI2562Q",
+    "mobile": "9683074772",
+    "date_of_registration": "2019-01-09"
+  },
+  {
+    "labour_id": "LA278",
+    "establishment_name": "Business_68",
+    "registered_address": "45 MG Road, Hubli 560034",
+    "area_pin": "560034",
+    "employer_pan": "ICAIJ5419D",
+    "mobile": "9128198506",
+    "date_of_registration": "2024-05-03"
+  },
+  {
+    "labour_id": "LA282",
+    "establishment_name": "Business_72",
+    "registered_address": "38 Market Road, Mysore 580020",
+    "area_pin": "580020",
+    "employer_pan": "GJVKC4273S",
+    "mobile": "9822604249",
+    "date_of_registration": "2019-09-29"
+  },
+  {
+    "labour_id": "LA286",
+    "establishment_name": "Business_76",
+    "registered_address": "No. 50, KIADB Layout, Davangere 560043",
+    "area_pin": "560043",
+    "employer_pan": "XCVSJ6620O",
+    "mobile": "9172127903",
+    "date_of_registration": "2021-12-23"
+  },
+  {
+    "labour_id": "LA290",
+    "establishment_name": "Business_80",
+    "registered_address": "Plot 96, Industrial Area, Hubli 560058",
+    "area_pin": "560058",
+    "employer_pan": "SHPCD2931H",
+    "mobile": "9717193289",
+    "date_of_registration": "2021-01-15"
+  },
+  {
+    "labour_id": "LA294",
+    "establishment_name": "Business_84",
+    "registered_address": "No. 122, KIADB Layout, Mangalore 560058",
+    "area_pin": "560058",
+    "employer_pan": "ZCVTH1528O",
+    "mobile": "9863166250",
+    "date_of_registration": "2018-07-02"
+  },
+  {
+    "labour_id": "LA298",
+    "establishment_name": "Business_88",
+    "registered_address": "Plot 55, Industrial Area, Davangere 560043",
+    "area_pin": "560043",
+    "employer_pan": "CZQSW9756M",
+    "mobile": "9707890457",
+    "date_of_registration": "2019-11-26"
+  },
+  {
+    "labour_id": "LA302",
+    "establishment_name": "Business_92",
+    "registered_address": "Plot 167, Industrial Area, Hubli 580030",
+    "area_pin": "580030",
+    "employer_pan": "JVWQR2120Q",
+    "mobile": "9542070132",
+    "date_of_registration": "2018-06-08"
+  },
+  {
+    "labour_id": "LA306",
+    "establishment_name": "Business_96",
+    "registered_address": "43 MG Road, Bellary 570002",
+    "area_pin": "570002",
+    "employer_pan": "XYKHS7806N",
+    "mobile": "9649009234",
+    "date_of_registration": "2023-01-24"
+  },
+  {
+    "labour_id": "LA310",
+    "establishment_name": "Business_100",
+    "registered_address": "Plot 99, Industrial Area, Hubli 560001",
+    "area_pin": "560001",
+    "employer_pan": "XRCTA1201H",
+    "mobile": "9445532283",
+    "date_of_registration": "2022-07-24"
+  },
+  {
+    "labour_id": "LA314",
+    "establishment_name": "Business_104",
+    "registered_address": "73 Market Road, Bangalore 560011",
+    "area_pin": "560011",
+    "employer_pan": "XXNSJ2391S",
+    "mobile": "9811293744",
+    "date_of_registration": "2023-11-17"
+  },
+  {
+    "labour_id": "LA318",
+    "establishment_name": "Business_108",
+    "registered_address": "No. 102, KIADB Layout, Davangere 580030",
+    "area_pin": "580030",
+    "employer_pan": "BUFFK2376S",
+    "mobile": "9231563076",
+    "date_of_registration": "2024-11-12"
+  },
+  {
+    "labour_id": "LA322",
+    "establishment_name": "Business_112",
+    "registered_address": "Plot 196, Industrial Area, Mangalore 580020",
+    "area_pin": "580020",
+    "employer_pan": "NTZZC4951I",
+    "mobile": "9353994846",
+    "date_of_registration": "2018-09-13"
+  },
+  {
+    "labour_id": "LA326",
+    "establishment_name": "Business_116",
+    "registered_address": "201 MG Road, Gulbarga 580030",
+    "area_pin": "580030",
+    "employer_pan": "PEHRD1029W",
+    "mobile": "9632774653",
+    "date_of_registration": "2023-10-07"
+  },
+  {
+    "labour_id": "LA330",
+    "establishment_name": "Business_120",
+    "registered_address": "Plot 25, Industrial Area, Bangalore 560058",
+    "area_pin": "560058",
+    "employer_pan": "CFESS9849I",
+    "mobile": "9158524142",
+    "date_of_registration": "2021-04-19"
+  },
+  {
+    "labour_id": "LA334",
+    "establishment_name": "Business_124",
+    "registered_address": "55 Market Road, Mysore 575001",
+    "area_pin": "575001",
+    "employer_pan": "AONOZ3415D",
+    "mobile": "9316809172",
+    "date_of_registration": "2018-04-23"
+  },
+  {
+    "labour_id": "LA338",
+    "establishment_name": "Business_128",
+    "registered_address": "No. 109, KIADB Layout, Tumkur 570002",
+    "area_pin": "570002",
+    "employer_pan": "RZFHT6257I",
+    "mobile": "9981560713",
+    "date_of_registration": "2024-09-17"
+  },
+  {
+    "labour_id": "LA342",
+    "establishment_name": "Business_132",
+    "registered_address": "39 Market Road, Bellary 570002",
+    "area_pin": "570002",
+    "employer_pan": "EUFPY5511N",
+    "mobile": "9727588309",
+    "date_of_registration": "2024-03-12"
+  },
+  {
+    "labour_id": "LA346",
+    "establishment_name": "Business_136",
+    "registered_address": "No. 216, KIADB Layout, Shimoga 560011",
+    "area_pin": "560011",
+    "employer_pan": "TSOXY6499U",
+    "mobile": "9597959181",
+    "date_of_registration": "2024-01-09"
+  },
+  {
+    "labour_id": "LA501",
+    "establishment_name": "Rao Agricultural Export",
+    "registered_address": "170 Industrial Estate, Mysore 560011",
+    "area_pin": "560011",
+    "employer_pan": "",
+    "mobile": "9367171793",
+    "date_of_registration": "2017-10-03"
+  },
+  {
+    "labour_id": "LA503",
+    "establishment_name": "Kumar Packaging",
+    "registered_address": "108 Industrial Area, Mangalore 560043",
+    "area_pin": "560043",
+    "employer_pan": "",
+    "mobile": "9732080338",
+    "date_of_registration": "2024-03-11"
+  },
+  {
+    "labour_id": "LA505",
+    "establishment_name": "Gowda Rice Processing",
+    "registered_address": "143 Industrial Estate, Shimoga 570001",
+    "area_pin": "570001",
+    "employer_pan": "",
+    "mobile": "9662767039",
+    "date_of_registration": "2020-03-25"
+  },
+  {
+    "labour_id": "LA507",
+    "establishment_name": "Joshi Precision Engg",
+    "registered_address": "58 Industrial Estate, Davangere 575001",
+    "area_pin": "575001",
+    "employer_pan": "",
+    "mobile": "9971887294",
+    "date_of_registration": "2019-11-06"
+  },
+  {
+    "labour_id": "LA509",
+    "establishment_name": "Acharya Textiles Mill",
+    "registered_address": "64 Industrial Area, Gulbarga 580030",
+    "area_pin": "580030",
+    "employer_pan": "",
+    "mobile": "9123529192",
+    "date_of_registration": "2023-11-15"
+  }
+]

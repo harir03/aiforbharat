@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic
+psycopg2-binary
+redis
+pika
+rapidfuzz
+xgboost
+shap
+numpy
+pandas
+scikit-learn
+python-dotenv
+httpx
+jellyfish

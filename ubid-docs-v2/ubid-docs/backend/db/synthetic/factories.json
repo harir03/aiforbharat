@@ -1,0 +1,560 @@
+[
+  {
+    "factory_id": "FA002",
+    "factory_name": "Sharma Textiles",
+    "factory_address": "Plot 24, Industrial Area, Mangalore 580030",
+    "pincode": "580030",
+    "pan_no": "QAHFT9935C",
+    "phone_no": "9553778756",
+    "licence_date": "2017-04-25"
+  },
+  {
+    "factory_id": "FA006",
+    "factory_name": "Bangalore Mfg Works",
+    "factory_address": "21 Market Road, Davangere 560011",
+    "pincode": "560011",
+    "pan_no": "CHQXJ4150W",
+    "phone_no": "9149203558",
+    "licence_date": "2020-04-04"
+  },
+  {
+    "factory_id": "FA010",
+    "factory_name": "KA Engineering Works",
+    "factory_address": "Plot 184, Industrial Area, Shimoga 560011",
+    "pincode": "560011",
+    "pan_no": "ITBVU7572I",
+    "phone_no": "9326541099",
+    "licence_date": "2022-05-17"
+  },
+  {
+    "factory_id": "FA030",
+    "factory_name": "Mangalore Spices",
+    "factory_address": "161 MG Road, Bangalore 560011",
+    "pincode": "560011",
+    "pan_no": "BVWCQ9856A",
+    "phone_no": "9909134796",
+    "licence_date": "2023-07-01"
+  },
+  {
+    "factory_id": "FA034",
+    "factory_name": "Belagavi Auto",
+    "factory_address": "Plot 3, Industrial Area, Davangere 560011",
+    "pincode": "560011",
+    "pan_no": "RGDXG1651T",
+    "phone_no": "9550139320",
+    "licence_date": "2022-05-14"
+  },
+  {
+    "factory_id": "FA046",
+    "factory_name": "Cauvery Garments Unit",
+    "factory_address": "5 Market Road, Mysore 560043",
+    "pincode": "560043",
+    "pan_no": "VGUCW8711H",
+    "phone_no": "9976803188",
+    "licence_date": "2021-08-30"
+  },
+  {
+    "factory_id": "FA054",
+    "factory_name": "Mandya Sugar Unit",
+    "factory_address": "No. 172, KIADB Layout, Mysore 580020",
+    "pincode": "580020",
+    "pan_no": "DKYRX5930M",
+    "phone_no": "9995205588",
+    "licence_date": "2020-05-22"
+  },
+  {
+    "factory_id": "FA058",
+    "factory_name": "Davangere Cotton Ltd",
+    "factory_address": "127 MG Road, Belgaum 560034",
+    "pincode": "560034",
+    "pan_no": "RATUC7965H",
+    "phone_no": "9963406382",
+    "licence_date": "2016-05-10"
+  },
+  {
+    "factory_id": "FA062",
+    "factory_name": "Tumkur Plastics Unit",
+    "factory_address": "Plot 91, Industrial Area, Belgaum 580030",
+    "pincode": "580030",
+    "pan_no": "IMBVK1320Y",
+    "phone_no": "9790147183",
+    "licence_date": "2019-11-14"
+  },
+  {
+    "factory_id": "FA074",
+    "factory_name": "Raichur Agro Ltd",
+    "factory_address": "No. 276, KIADB Layout, Davangere 560034",
+    "pincode": "560034",
+    "pan_no": "WVCYQ8532W",
+    "phone_no": "9567600762",
+    "licence_date": "2021-09-23"
+  },
+  {
+    "factory_id": "FA078",
+    "factory_name": "Bellary Iron Works Ltd",
+    "factory_address": "No. 252, KIADB Layout, Davangere 570002",
+    "pincode": "570002",
+    "pan_no": "WSHAY2402H",
+    "phone_no": "9624606470",
+    "licence_date": "2022-11-10"
+  },
+  {
+    "factory_id": "FA082",
+    "factory_name": "Udupi Fish Exports Ltd",
+    "factory_address": "7 MG Road, Gulbarga 560058",
+    "pincode": "560058",
+    "pan_no": "MSZNH2647G",
+    "phone_no": "9344258191",
+    "licence_date": "2019-02-20"
+  },
+  {
+    "factory_id": "FA086",
+    "factory_name": "Dharwad Engineering Unit",
+    "factory_address": "53 Market Road, Davangere 575001",
+    "pincode": "575001",
+    "pan_no": "DTPUF9561M",
+    "phone_no": "9575368059",
+    "licence_date": "2016-10-15"
+  },
+  {
+    "factory_id": "FA090",
+    "factory_name": "Chitradurga Granite",
+    "factory_address": "65 Market Road, Bellary 580030",
+    "pincode": "580030",
+    "pan_no": "QXVBE6039T",
+    "phone_no": "9409893263",
+    "licence_date": "2020-06-07"
+  },
+  {
+    "factory_id": "FA094",
+    "factory_name": "Kolar Gold Fields Unit",
+    "factory_address": "No. 83, KIADB Layout, Shimoga 570001",
+    "pincode": "570001",
+    "pan_no": "XEPQM2494P",
+    "phone_no": "9538460431",
+    "licence_date": "2017-11-30"
+  },
+  {
+    "factory_id": "FA098",
+    "factory_name": "Chikmagalur Estates Unit",
+    "factory_address": "54 Market Road, Davangere 560011",
+    "pincode": "560011",
+    "pan_no": "IAKFV2858O",
+    "phone_no": "9795472980",
+    "licence_date": "2022-08-11"
+  },
+  {
+    "factory_id": "FA106",
+    "factory_name": "Gadag Textiles Ltd",
+    "factory_address": "No. 167, KIADB Layout, Bangalore 560011",
+    "pincode": "560011",
+    "pan_no": "GRHFC2612Y",
+    "phone_no": "9576396216",
+    "licence_date": "2020-07-06"
+  },
+  {
+    "factory_id": "FA110",
+    "factory_name": "Koppal Mining Ltd",
+    "factory_address": "98 MG Road, Gulbarga 560011",
+    "pincode": "560011",
+    "pan_no": "LRXMH9955F",
+    "phone_no": "9574303740",
+    "licence_date": "2021-01-11"
+  },
+  {
+    "factory_id": "FA114",
+    "factory_name": "Yadgir Farms Unit",
+    "factory_address": "272 MG Road, Bellary 580020",
+    "pincode": "580020",
+    "pan_no": "TCHTE3165Z",
+    "phone_no": "9492836532",
+    "licence_date": "2020-02-03"
+  },
+  {
+    "factory_id": "FA201",
+    "factory_name": "Karwar Shipping",
+    "factory_address": "No. 68, KIADB Layout, Bangalore 580020",
+    "pincode": "580020",
+    "pan_no": "IDXAW3370E",
+    "phone_no": "9116944811",
+    "licence_date": "2023-05-23"
+  },
+  {
+    "factory_id": "FA205",
+    "factory_name": "Ranebennur Cotton",
+    "factory_address": "No. 31, KIADB Layout, Gulbarga 570002",
+    "pincode": "570002",
+    "pan_no": "RJDXB2398C",
+    "phone_no": "9819421270",
+    "licence_date": "2023-12-22"
+  },
+  {
+    "factory_id": "FA209",
+    "factory_name": "Mudhol Ceramics",
+    "factory_address": "No. 59, KIADB Layout, Shimoga 575001",
+    "pincode": "575001",
+    "pan_no": "EQRHR8957T",
+    "phone_no": "9828230915",
+    "licence_date": "2017-09-25"
+  },
+  {
+    "factory_id": "FA213",
+    "factory_name": "Business_3",
+    "factory_address": "Plot 90, Industrial Area, Hubli 560043",
+    "pincode": "560043",
+    "pan_no": "TFUBQ9693Q",
+    "phone_no": "9286293158",
+    "licence_date": "2018-08-03"
+  },
+  {
+    "factory_id": "FA217",
+    "factory_name": "Business_7",
+    "factory_address": "397 MG Road, Shimoga 570002",
+    "pincode": "570002",
+    "pan_no": "SZNPJ5634M",
+    "phone_no": "9699108439",
+    "licence_date": "2017-09-26"
+  },
+  {
+    "factory_id": "FA221",
+    "factory_name": "Business_11",
+    "factory_address": "No. 123, KIADB Layout, Belgaum 580030",
+    "pincode": "580030",
+    "pan_no": "UVELK4891O",
+    "phone_no": "9828326405",
+    "licence_date": "2018-12-12"
+  },
+  {
+    "factory_id": "FA225",
+    "factory_name": "Business_15",
+    "factory_address": "63 MG Road, Bangalore 560058",
+    "pincode": "560058",
+    "pan_no": "FDYPL5720H",
+    "phone_no": "9778556450",
+    "licence_date": "2019-07-26"
+  },
+  {
+    "factory_id": "FA229",
+    "factory_name": "Business_19",
+    "factory_address": "Plot 95, Industrial Area, Tumkur 570001",
+    "pincode": "570001",
+    "pan_no": "MAQHW1783U",
+    "phone_no": "9632794158",
+    "licence_date": "2017-08-01"
+  },
+  {
+    "factory_id": "FA233",
+    "factory_name": "Business_23",
+    "factory_address": "No. 134, KIADB Layout, Davangere 570002",
+    "pincode": "570002",
+    "pan_no": "KQGCT9176Q",
+    "phone_no": "9845156039",
+    "licence_date": "2019-11-02"
+  },
+  {
+    "factory_id": "FA237",
+    "factory_name": "Business_27",
+    "factory_address": "No. 166, KIADB Layout, Mangalore 580020",
+    "pincode": "580020",
+    "pan_no": "OPTDN1907D",
+    "phone_no": "9184675178",
+    "licence_date": "2022-07-14"
+  },
+  {
+    "factory_id": "FA241",
+    "factory_name": "Business_31",
+    "factory_address": "64 Market Road, Bellary 560034",
+    "pincode": "560034",
+    "pan_no": "GGCHJ7850H",
+    "phone_no": "9635539154",
+    "licence_date": "2021-11-19"
+  },
+  {
+    "factory_id": "FA245",
+    "factory_name": "Business_35",
+    "factory_address": "No. 273, KIADB Layout, Davangere 560058",
+    "pincode": "560058",
+    "pan_no": "DXDYI7438T",
+    "phone_no": "9609912042",
+    "licence_date": "2025-02-26"
+  },
+  {
+    "factory_id": "FA249",
+    "factory_name": "Business_39",
+    "factory_address": "No. 177, KIADB Layout, Hubli 560011",
+    "pincode": "560011",
+    "pan_no": "USRMM5480J",
+    "phone_no": "9866803374",
+    "licence_date": "2024-06-16"
+  },
+  {
+    "factory_id": "FA253",
+    "factory_name": "Business_43",
+    "factory_address": "99 MG Road, Mysore 560058",
+    "pincode": "560058",
+    "pan_no": "LQNXD9261O",
+    "phone_no": "9890937440",
+    "licence_date": "2021-07-25"
+  },
+  {
+    "factory_id": "FA257",
+    "factory_name": "Business_47",
+    "factory_address": "Plot 141, Industrial Area, Bellary 580030",
+    "pincode": "580030",
+    "pan_no": "RPUNN6927C",
+    "phone_no": "9452313624",
+    "licence_date": "2019-07-05"
+  },
+  {
+    "factory_id": "FA261",
+    "factory_name": "Business_51",
+    "factory_address": "195 MG Road, Mangalore 580020",
+    "pincode": "580020",
+    "pan_no": "SFAAH9920N",
+    "phone_no": "9134593072",
+    "licence_date": "2017-12-09"
+  },
+  {
+    "factory_id": "FA265",
+    "factory_name": "Business_55",
+    "factory_address": "Plot 143, Industrial Area, Bellary 580020",
+    "pincode": "580020",
+    "pan_no": "NGFWD8586B",
+    "phone_no": "9454617185",
+    "licence_date": "2018-02-03"
+  },
+  {
+    "factory_id": "FA269",
+    "factory_name": "Business_59",
+    "factory_address": "No. 126, KIADB Layout, Davangere 560043",
+    "pincode": "560043",
+    "pan_no": "TAOPS5836E",
+    "phone_no": "9919652226",
+    "licence_date": "2019-11-12"
+  },
+  {
+    "factory_id": "FA273",
+    "factory_name": "Business_63",
+    "factory_address": "335 MG Road, Bangalore 560011",
+    "pincode": "560011",
+    "pan_no": "GKJKO4700J",
+    "phone_no": "9783703040",
+    "licence_date": "2025-03-28"
+  },
+  {
+    "factory_id": "FA277",
+    "factory_name": "Business_67",
+    "factory_address": "Plot 183, Industrial Area, Mysore 580030",
+    "pincode": "580030",
+    "pan_no": "JYLRR2404Y",
+    "phone_no": "9894198823",
+    "licence_date": "2020-12-22"
+  },
+  {
+    "factory_id": "FA281",
+    "factory_name": "Business_71",
+    "factory_address": "41 Market Road, Belgaum 570001",
+    "pincode": "570001",
+    "pan_no": "IQUII3230J",
+    "phone_no": "9718345671",
+    "licence_date": "2016-07-29"
+  },
+  {
+    "factory_id": "FA285",
+    "factory_name": "Business_75",
+    "factory_address": "396 MG Road, Gulbarga 575001",
+    "pincode": "575001",
+    "pan_no": "FTORF7129M",
+    "phone_no": "9417217932",
+    "licence_date": "2020-09-05"
+  },
+  {
+    "factory_id": "FA289",
+    "factory_name": "Business_79",
+    "factory_address": "Plot 157, Industrial Area, Tumkur 570001",
+    "pincode": "570001",
+    "pan_no": "EILGW9646U",
+    "phone_no": "9973744799",
+    "licence_date": "2017-10-15"
+  },
+  {
+    "factory_id": "FA293",
+    "factory_name": "Business_83",
+    "factory_address": "97 Market Road, Bangalore 580030",
+    "pincode": "580030",
+    "pan_no": "HUOUM9369D",
+    "phone_no": "9686642360",
+    "licence_date": "2022-11-22"
+  },
+  {
+    "factory_id": "FA297",
+    "factory_name": "Business_87",
+    "factory_address": "207 MG Road, Bellary 560011",
+    "pincode": "560011",
+    "pan_no": "KDQQJ2237U",
+    "phone_no": "9931221434",
+    "licence_date": "2017-02-15"
+  },
+  {
+    "factory_id": "FA301",
+    "factory_name": "Business_91",
+    "factory_address": "No. 46, KIADB Layout, Mysore 560034",
+    "pincode": "560034",
+    "pan_no": "FRASV7919W",
+    "phone_no": "9421322967",
+    "licence_date": "2023-10-22"
+  },
+  {
+    "factory_id": "FA305",
+    "factory_name": "Business_95",
+    "factory_address": "No. 9, KIADB Layout, Gulbarga 560034",
+    "pincode": "560034",
+    "pan_no": "ZYDWO6986R",
+    "phone_no": "9331652222",
+    "licence_date": "2024-11-23"
+  },
+  {
+    "factory_id": "FA309",
+    "factory_name": "Business_99",
+    "factory_address": "No. 291, KIADB Layout, Hubli 575001",
+    "pincode": "575001",
+    "pan_no": "ILNGZ2262P",
+    "phone_no": "9930355646",
+    "licence_date": "2024-03-10"
+  },
+  {
+    "factory_id": "FA313",
+    "factory_name": "Business_103",
+    "factory_address": "No. 215, KIADB Layout, Davangere 560058",
+    "pincode": "560058",
+    "pan_no": "OQSAI7164X",
+    "phone_no": "9199886596",
+    "licence_date": "2024-11-07"
+  },
+  {
+    "factory_id": "FA317",
+    "factory_name": "Business_107",
+    "factory_address": "Plot 143, Industrial Area, Bellary 570002",
+    "pincode": "570002",
+    "pan_no": "SZKBH3848A",
+    "phone_no": "9230409444",
+    "licence_date": "2025-03-18"
+  },
+  {
+    "factory_id": "FA321",
+    "factory_name": "Business_111",
+    "factory_address": "93 MG Road, Bangalore 560058",
+    "pincode": "560058",
+    "pan_no": "SMUIO6269M",
+    "phone_no": "9968285490",
+    "licence_date": "2020-01-20"
+  },
+  {
+    "factory_id": "FA325",
+    "factory_name": "Business_115",
+    "factory_address": "No. 250, KIADB Layout, Shimoga 560034",
+    "pincode": "560034",
+    "pan_no": "YJYKC5944K",
+    "phone_no": "9339699130",
+    "licence_date": "2017-11-17"
+  },
+  {
+    "factory_id": "FA329",
+    "factory_name": "Business_119",
+    "factory_address": "84 Market Road, Hubli 560011",
+    "pincode": "560011",
+    "pan_no": "IYBEJ2228R",
+    "phone_no": "9268688902",
+    "licence_date": "2024-09-28"
+  },
+  {
+    "factory_id": "FA333",
+    "factory_name": "Business_123",
+    "factory_address": "495 MG Road, Bellary 570002",
+    "pincode": "570002",
+    "pan_no": "IOZPO7342Q",
+    "phone_no": "9523917958",
+    "licence_date": "2017-05-02"
+  },
+  {
+    "factory_id": "FA337",
+    "factory_name": "Business_127",
+    "factory_address": "No. 11, KIADB Layout, Shimoga 560043",
+    "pincode": "560043",
+    "pan_no": "HDPSB6431W",
+    "phone_no": "9627872109",
+    "licence_date": "2017-07-15"
+  },
+  {
+    "factory_id": "FA341",
+    "factory_name": "Business_131",
+    "factory_address": "100 Market Road, Bangalore 560043",
+    "pincode": "560043",
+    "pan_no": "TRHKE4511H",
+    "phone_no": "9242071170",
+    "licence_date": "2018-01-31"
+  },
+  {
+    "factory_id": "FA345",
+    "factory_name": "Business_135",
+    "factory_address": "465 MG Road, Shimoga 575001",
+    "pincode": "575001",
+    "pan_no": "PZVIS9759U",
+    "phone_no": "9605497119",
+    "licence_date": "2023-11-28"
+  },
+  {
+    "factory_id": "FA349",
+    "factory_name": "Business_139",
+    "factory_address": "Plot 104, Industrial Area, Tumkur 570002",
+    "pincode": "570002",
+    "pan_no": "UOEUU3120T",
+    "phone_no": "9884539206",
+    "licence_date": "2021-02-27"
+  },
+  {
+    "factory_id": "FA500",
+    "factory_name": "Patel Chemicals Pvt Ltd",
+    "factory_address": "92 Industrial Area, Bangalore 560001",
+    "pincode": "560001",
+    "pan_no": "",
+    "phone_no": "9304630191",
+    "licence_date": "2025-03-09"
+  },
+  {
+    "factory_id": "FA502",
+    "factory_name": "Reddy Steels Bangalore",
+    "factory_address": "187 Industrial Area, Hubli 560034",
+    "pincode": "560034",
+    "pan_no": "",
+    "phone_no": "9435106513",
+    "licence_date": "2022-10-22"
+  },
+  {
+    "factory_id": "FA504",
+    "factory_name": "Nagaraj Automobile Works",
+    "factory_address": "21 Industrial Estate, Belgaum 560058",
+    "pincode": "560058",
+    "pan_no": "",
+    "phone_no": "9412273967",
+    "licence_date": "2023-06-21"
+  },
+  {
+    "factory_id": "FA507",
+    "factory_name": "Joshi Precision Tools",
+    "factory_address": "101 Industrial Area, Davangere 575001",
+    "pincode": "575001",
+    "pan_no": "",
+    "phone_no": "9277042316",
+    "licence_date": "2019-11-06"
+  },
+  {
+    "factory_id": "FA508",
+    "factory_name": "Hegde Spice Export Co",
+    "factory_address": "68 Industrial Estate, Bellary 580020",
+    "pincode": "580020",
+    "pan_no": "",
+    "phone_no": "9880791577",
+    "licence_date": "2020-10-26"
+  }
+]

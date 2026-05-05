@@ -1,0 +1,515 @@
+[
+  {
+    "kspcb_id": "KS004",
+    "industry_name": "Sharma Textile Mfg",
+    "site_address": "No. 195, KIADB Layout, Mysore 580030",
+    "site_pincode": "580030",
+    "company_pan": "QAHFT9935C",
+    "contact_no": "9553035110",
+    "consent_date": "2017-04-25"
+  },
+  {
+    "kspcb_id": "KS008",
+    "industry_name": "Bengaluru Manufacturing",
+    "site_address": "No. 41, KIADB Layout, Mangalore 560011",
+    "site_pincode": "560011",
+    "company_pan": "CHQXJ4150W",
+    "contact_no": "9149203558",
+    "consent_date": "2020-04-04"
+  },
+  {
+    "kspcb_id": "KS028",
+    "industry_name": "Hubli Steel Works",
+    "site_address": "Plot 115, Industrial Area, Hubli 575001",
+    "site_pincode": "575001",
+    "company_pan": "MOSWO4981Z",
+    "contact_no": "9967043303",
+    "consent_date": "2017-03-02"
+  },
+  {
+    "kspcb_id": "KS036",
+    "industry_name": "Belgaum Auto Parts",
+    "site_address": "No. 271, KIADB Layout, Bangalore 560011",
+    "site_pincode": "560011",
+    "company_pan": "RGDXG1651T",
+    "contact_no": "9550139320",
+    "consent_date": "2022-05-14"
+  },
+  {
+    "kspcb_id": "KS040",
+    "industry_name": "Shivamogga Wood",
+    "site_address": "108 MG Road, Shimoga 560058",
+    "site_pincode": "560058",
+    "company_pan": "CWGXT3546I",
+    "contact_no": "9236843584",
+    "consent_date": "2018-03-25"
+  },
+  {
+    "kspcb_id": "KS044",
+    "industry_name": "Nandi Pharma",
+    "site_address": "Plot 200, Industrial Area, Bellary 560043",
+    "site_pincode": "560043",
+    "company_pan": "BJYZB6862G",
+    "contact_no": "9816114302",
+    "consent_date": "2023-07-10"
+  },
+  {
+    "kspcb_id": "KS056",
+    "industry_name": "Mandya Sugar Ltd",
+    "site_address": "78 Market Road, Shimoga 580020",
+    "site_pincode": "580020",
+    "company_pan": "DKYRX5930M",
+    "contact_no": "9995205588",
+    "consent_date": "2020-05-22"
+  },
+  {
+    "kspcb_id": "KS060",
+    "industry_name": "Davangere Cotton",
+    "site_address": "Plot 21, Industrial Area, Hubli 560034",
+    "site_pincode": "560034",
+    "company_pan": "RATUC7965H",
+    "contact_no": "9537656494",
+    "consent_date": "2016-05-10"
+  },
+  {
+    "kspcb_id": "KS072",
+    "industry_name": "Gulbarga Minerals",
+    "site_address": "311 MG Road, Gulbarga 570001",
+    "site_pincode": "570001",
+    "company_pan": "GMCYM5198Y",
+    "contact_no": "9280162221",
+    "consent_date": "2021-11-05"
+  },
+  {
+    "kspcb_id": "KS080",
+    "industry_name": "Bellary Iron Works Unit",
+    "site_address": "No. 252, KIADB Layout, Davangere 570002",
+    "site_pincode": "570002",
+    "company_pan": "WSHAY2402H",
+    "contact_no": "9624606470",
+    "consent_date": "2022-11-10"
+  },
+  {
+    "kspcb_id": "KS088",
+    "industry_name": "Dharwad Engineering",
+    "site_address": "85 Market Road, Mangalore 575001",
+    "site_pincode": "575001",
+    "company_pan": "DTPUF9561M",
+    "contact_no": "9341387305",
+    "consent_date": "2016-10-15"
+  },
+  {
+    "kspcb_id": "KS096",
+    "industry_name": "Kolar Gold Fields",
+    "site_address": "Plot 74, Industrial Area, Davangere 570001",
+    "site_pincode": "570001",
+    "company_pan": "XEPQM2494P",
+    "contact_no": "9538460431",
+    "consent_date": "2017-11-30"
+  },
+  {
+    "kspcb_id": "KS100",
+    "industry_name": "Chikmagalur Estates",
+    "site_address": "37 Market Road, Belgaum 560011",
+    "site_pincode": "560011",
+    "company_pan": "IAKFV2858O",
+    "contact_no": "9795472980",
+    "consent_date": "2022-08-11"
+  },
+  {
+    "kspcb_id": "KS112",
+    "industry_name": "Koppal Mining Ltd",
+    "site_address": "Plot 151, Industrial Area, Belgaum 560011",
+    "site_pincode": "560011",
+    "company_pan": "LRXMH9955F",
+    "contact_no": "9574303740",
+    "consent_date": "2021-01-11"
+  },
+  {
+    "kspcb_id": "KS120",
+    "industry_name": "Bagalkot Sugar Mills Ltd",
+    "site_address": "33 MG Road, Davangere 560043",
+    "site_pincode": "560043",
+    "company_pan": "VYCGA6374T",
+    "contact_no": "9795411453",
+    "consent_date": "2021-12-06"
+  },
+  {
+    "kspcb_id": "KS203",
+    "industry_name": "Bhadravati Steel",
+    "site_address": "No. 76, KIADB Layout, Mysore 575001",
+    "site_pincode": "575001",
+    "company_pan": "ZBMKR9032W",
+    "contact_no": "9508992977",
+    "consent_date": "2018-08-24"
+  },
+  {
+    "kspcb_id": "KS207",
+    "industry_name": "Nipani Tobacco",
+    "site_address": "Plot 70, Industrial Area, Belgaum 560058",
+    "site_pincode": "560058",
+    "company_pan": "VJTOU1430T",
+    "contact_no": "9708082645",
+    "consent_date": "2017-12-21"
+  },
+  {
+    "kspcb_id": "KS211",
+    "industry_name": "Business_1",
+    "site_address": "41 Market Road, Gulbarga 570002",
+    "site_pincode": "570002",
+    "company_pan": "LDNFO6802C",
+    "contact_no": "9715683222",
+    "consent_date": "2020-10-22"
+  },
+  {
+    "kspcb_id": "KS215",
+    "industry_name": "Business_5",
+    "site_address": "77 Market Road, Bellary 560001",
+    "site_pincode": "560001",
+    "company_pan": "QUPJB8565O",
+    "contact_no": "9596832859",
+    "consent_date": "2018-11-01"
+  },
+  {
+    "kspcb_id": "KS219",
+    "industry_name": "Business_9",
+    "site_address": "28 Market Road, Shimoga 570002",
+    "site_pincode": "570002",
+    "company_pan": "QIDSY9624C",
+    "contact_no": "9306164050",
+    "consent_date": "2022-10-21"
+  },
+  {
+    "kspcb_id": "KS223",
+    "industry_name": "Business_13",
+    "site_address": "48 Market Road, Mangalore 570001",
+    "site_pincode": "570001",
+    "company_pan": "THXDL4637O",
+    "contact_no": "9187623171",
+    "consent_date": "2021-02-20"
+  },
+  {
+    "kspcb_id": "KS227",
+    "industry_name": "Business_17",
+    "site_address": "No. 171, KIADB Layout, Hubli 560043",
+    "site_pincode": "560043",
+    "company_pan": "BKJTJ2106L",
+    "contact_no": "9973498494",
+    "consent_date": "2018-02-19"
+  },
+  {
+    "kspcb_id": "KS231",
+    "industry_name": "Business_21",
+    "site_address": "141 MG Road, Bangalore 570002",
+    "site_pincode": "570002",
+    "company_pan": "PLRJB6776T",
+    "contact_no": "9253308283",
+    "consent_date": "2018-07-13"
+  },
+  {
+    "kspcb_id": "KS235",
+    "industry_name": "Business_25",
+    "site_address": "Plot 7, Industrial Area, Shimoga 560034",
+    "site_pincode": "560034",
+    "company_pan": "YQUND4292Z",
+    "contact_no": "9757074545",
+    "consent_date": "2024-05-17"
+  },
+  {
+    "kspcb_id": "KS239",
+    "industry_name": "Business_29",
+    "site_address": "149 MG Road, Belgaum 580020",
+    "site_pincode": "580020",
+    "company_pan": "UGFOQ1496P",
+    "contact_no": "9269737590",
+    "consent_date": "2020-05-31"
+  },
+  {
+    "kspcb_id": "KS243",
+    "industry_name": "Business_33",
+    "site_address": "148 MG Road, Mysore 580020",
+    "site_pincode": "580020",
+    "company_pan": "STJKO4189L",
+    "contact_no": "9238151258",
+    "consent_date": "2024-04-04"
+  },
+  {
+    "kspcb_id": "KS247",
+    "industry_name": "Business_37",
+    "site_address": "Plot 106, Industrial Area, Bellary 570002",
+    "site_pincode": "570002",
+    "company_pan": "GOSEL7861E",
+    "contact_no": "9702247585",
+    "consent_date": "2021-09-12"
+  },
+  {
+    "kspcb_id": "KS251",
+    "industry_name": "Business_41",
+    "site_address": "209 MG Road, Davangere 560034",
+    "site_pincode": "560034",
+    "company_pan": "BKSCU1084R",
+    "contact_no": "9800400428",
+    "consent_date": "2018-11-27"
+  },
+  {
+    "kspcb_id": "KS255",
+    "industry_name": "Business_45",
+    "site_address": "No. 239, KIADB Layout, Belgaum 570001",
+    "site_pincode": "570001",
+    "company_pan": "JLGIP1187I",
+    "contact_no": "9841193655",
+    "consent_date": "2024-01-11"
+  },
+  {
+    "kspcb_id": "KS259",
+    "industry_name": "Business_49",
+    "site_address": "5 Market Road, Belgaum 570001",
+    "site_pincode": "570001",
+    "company_pan": "SKVTP1742N",
+    "contact_no": "9293253475",
+    "consent_date": "2016-09-20"
+  },
+  {
+    "kspcb_id": "KS263",
+    "industry_name": "Business_53",
+    "site_address": "No. 74, KIADB Layout, Bellary 580030",
+    "site_pincode": "580030",
+    "company_pan": "TUDZG6224S",
+    "contact_no": "9395444277",
+    "consent_date": "2024-08-29"
+  },
+  {
+    "kspcb_id": "KS267",
+    "industry_name": "Business_57",
+    "site_address": "No. 105, KIADB Layout, Tumkur 575001",
+    "site_pincode": "575001",
+    "company_pan": "WIYAY2922X",
+    "contact_no": "9932701695",
+    "consent_date": "2022-03-03"
+  },
+  {
+    "kspcb_id": "KS271",
+    "industry_name": "Business_61",
+    "site_address": "69 Market Road, Bellary 580030",
+    "site_pincode": "580030",
+    "company_pan": "VGSAN7114B",
+    "contact_no": "9112724887",
+    "consent_date": "2025-02-26"
+  },
+  {
+    "kspcb_id": "KS275",
+    "industry_name": "Business_65",
+    "site_address": "No. 289, KIADB Layout, Mangalore 570002",
+    "site_pincode": "570002",
+    "company_pan": "REWAF3362Y",
+    "contact_no": "9512151733",
+    "consent_date": "2016-11-14"
+  },
+  {
+    "kspcb_id": "KS279",
+    "industry_name": "Business_69",
+    "site_address": "67 Market Road, Hubli 570002",
+    "site_pincode": "570002",
+    "company_pan": "JCPIK5781N",
+    "contact_no": "9282001119",
+    "consent_date": "2023-10-15"
+  },
+  {
+    "kspcb_id": "KS283",
+    "industry_name": "Business_73",
+    "site_address": "307 MG Road, Davangere 575001",
+    "site_pincode": "575001",
+    "company_pan": "DHGEL7176C",
+    "contact_no": "9949030118",
+    "consent_date": "2021-04-24"
+  },
+  {
+    "kspcb_id": "KS287",
+    "industry_name": "Business_77",
+    "site_address": "Plot 142, Industrial Area, Hubli 560043",
+    "site_pincode": "560043",
+    "company_pan": "BSAIC3692X",
+    "contact_no": "9956583753",
+    "consent_date": "2020-10-19"
+  },
+  {
+    "kspcb_id": "KS291",
+    "industry_name": "Business_81",
+    "site_address": "No. 162, KIADB Layout, Davangere 560034",
+    "site_pincode": "560034",
+    "company_pan": "KMNXY3838R",
+    "contact_no": "9110290140",
+    "consent_date": "2019-11-29"
+  },
+  {
+    "kspcb_id": "KS295",
+    "industry_name": "Business_85",
+    "site_address": "No. 87, KIADB Layout, Shimoga 570001",
+    "site_pincode": "570001",
+    "company_pan": "QEDFF1972S",
+    "contact_no": "9714970148",
+    "consent_date": "2022-05-06"
+  },
+  {
+    "kspcb_id": "KS299",
+    "industry_name": "Business_89",
+    "site_address": "No. 1, KIADB Layout, Tumkur 560011",
+    "site_pincode": "560011",
+    "company_pan": "UXTBQ8529A",
+    "contact_no": "9270700744",
+    "consent_date": "2022-04-09"
+  },
+  {
+    "kspcb_id": "KS303",
+    "industry_name": "Business_93",
+    "site_address": "No. 44, KIADB Layout, Mangalore 570002",
+    "site_pincode": "570002",
+    "company_pan": "RWCCT7291L",
+    "contact_no": "9936412291",
+    "consent_date": "2017-08-07"
+  },
+  {
+    "kspcb_id": "KS307",
+    "industry_name": "Business_97",
+    "site_address": "374 MG Road, Mangalore 570002",
+    "site_pincode": "570002",
+    "company_pan": "ZEIPT2083J",
+    "contact_no": "9432097676",
+    "consent_date": "2017-11-15"
+  },
+  {
+    "kspcb_id": "KS311",
+    "industry_name": "Business_101",
+    "site_address": "No. 206, KIADB Layout, Mysore 560001",
+    "site_pincode": "560001",
+    "company_pan": "KSHCJ9225V",
+    "contact_no": "9451436694",
+    "consent_date": "2024-05-17"
+  },
+  {
+    "kspcb_id": "KS315",
+    "industry_name": "Business_105",
+    "site_address": "140 MG Road, Mangalore 575001",
+    "site_pincode": "575001",
+    "company_pan": "GGIUS6345K",
+    "contact_no": "9276496293",
+    "consent_date": "2020-04-20"
+  },
+  {
+    "kspcb_id": "KS319",
+    "industry_name": "Business_109",
+    "site_address": "36 Market Road, Belgaum 570002",
+    "site_pincode": "570002",
+    "company_pan": "YBYLS9128A",
+    "contact_no": "9259591761",
+    "consent_date": "2024-12-15"
+  },
+  {
+    "kspcb_id": "KS323",
+    "industry_name": "Business_113",
+    "site_address": "73 MG Road, Gulbarga 580030",
+    "site_pincode": "580030",
+    "company_pan": "ITJPS6761S",
+    "contact_no": "9196913120",
+    "consent_date": "2024-09-17"
+  },
+  {
+    "kspcb_id": "KS327",
+    "industry_name": "Business_117",
+    "site_address": "229 MG Road, Bangalore 570001",
+    "site_pincode": "570001",
+    "company_pan": "ICJIQ2453W",
+    "contact_no": "9873538202",
+    "consent_date": "2025-04-30"
+  },
+  {
+    "kspcb_id": "KS331",
+    "industry_name": "Business_121",
+    "site_address": "51 Market Road, Davangere 560043",
+    "site_pincode": "560043",
+    "company_pan": "ACVQM2589A",
+    "contact_no": "9809786356",
+    "consent_date": "2022-05-16"
+  },
+  {
+    "kspcb_id": "KS335",
+    "industry_name": "Business_125",
+    "site_address": "2 Market Road, Gulbarga 580020",
+    "site_pincode": "580020",
+    "company_pan": "DPISU2425M",
+    "contact_no": "9220816186",
+    "consent_date": "2020-09-11"
+  },
+  {
+    "kspcb_id": "KS339",
+    "industry_name": "Business_129",
+    "site_address": "No. 128, KIADB Layout, Bangalore 560001",
+    "site_pincode": "560001",
+    "company_pan": "NEIND9589S",
+    "contact_no": "9856594938",
+    "consent_date": "2023-02-10"
+  },
+  {
+    "kspcb_id": "KS343",
+    "industry_name": "Business_133",
+    "site_address": "Plot 87, Industrial Area, Belgaum 560011",
+    "site_pincode": "560011",
+    "company_pan": "AZZVO5631J",
+    "contact_no": "9260985353",
+    "consent_date": "2019-07-18"
+  },
+  {
+    "kspcb_id": "KS347",
+    "industry_name": "Business_137",
+    "site_address": "Plot 136, Industrial Area, Belgaum 560011",
+    "site_pincode": "560011",
+    "company_pan": "MWPYB4187Q",
+    "contact_no": "9467938988",
+    "consent_date": "2020-10-02"
+  },
+  {
+    "kspcb_id": "KS500",
+    "industry_name": "Patel Chem Industries",
+    "site_address": "145 Industrial Estate, Bangalore 560001",
+    "site_pincode": "560001",
+    "company_pan": "",
+    "contact_no": "9119237294",
+    "consent_date": "2025-03-09"
+  },
+  {
+    "kspcb_id": "KS503",
+    "industry_name": "Kumar Pack Solutions",
+    "site_address": "138 Industrial Estate, Mangalore 560043",
+    "site_pincode": "560043",
+    "company_pan": "",
+    "contact_no": "9428688580",
+    "consent_date": "2024-03-11"
+  },
+  {
+    "kspcb_id": "KS505",
+    "industry_name": "Gowda Rice Industries",
+    "site_address": "196 Industrial Area, Shimoga 570001",
+    "site_pincode": "570001",
+    "company_pan": "",
+    "contact_no": "9740347321",
+    "consent_date": "2020-03-25"
+  },
+  {
+    "kspcb_id": "KS506",
+    "industry_name": "Shetty Marine Products",
+    "site_address": "185 Industrial Estate, Tumkur 570002",
+    "site_pincode": "570002",
+    "company_pan": "",
+    "contact_no": "9468006578",
+    "consent_date": "2021-07-22"
+  },
+  {
+    "kspcb_id": "KS509",
+    "industry_name": "Acharya Textile Mfg",
+    "site_address": "197 Industrial Estate, Gulbarga 580030",
+    "site_pincode": "580030",
+    "company_pan": "",
+    "contact_no": "9733177858",
+    "consent_date": "2023-11-15"
+  }
+]

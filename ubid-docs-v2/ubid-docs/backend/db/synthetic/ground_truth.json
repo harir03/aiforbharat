@@ -1,0 +1,841 @@
+{
+  "total_businesses": 210,
+  "shared_businesses": 30,
+  "unique_businesses": 170,
+  "hard_ambiguous_pairs": 10,
+  "match_pairs": [
+    {
+      "business": "Sharma Textiles",
+      "pan": "QAHFT9935C",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA002"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS004"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Sharma Textiles",
+      "pan": "QAHFT9935C",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA002"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA003"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Sharma Textiles",
+      "pan": "QAHFT9935C",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS004"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA003"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bangalore Manufacturing",
+      "pan": "CHQXJ4150W",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA006"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS008"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Karnataka Engineering",
+      "pan": "ITBVU7572I",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA010"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA011"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mysore Silks",
+      "pan": "FZNCB2796E",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH013"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA015"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Deccan Electronics",
+      "pan": "HQPDT9837Y",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH017"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA019"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "South India Traders",
+      "pan": "YENPZ9835Y",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA023"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH021"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Hubli Steel Works",
+      "pan": "MOSWO4981Z",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH025"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS028"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mangalore Spice Co",
+      "pan": "BVWCQ9856A",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH029"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA030"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mangalore Spice Co",
+      "pan": "BVWCQ9856A",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH029"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA031"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mangalore Spice Co",
+      "pan": "BVWCQ9856A",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA030"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA031"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Belgaum Auto Parts",
+      "pan": "RGDXG1651T",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA034"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA035"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Belgaum Auto Parts",
+      "pan": "RGDXG1651T",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA034"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS036"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Belgaum Auto Parts",
+      "pan": "RGDXG1651T",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA035"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS036"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Shimoga Wood Industries",
+      "pan": "CWGXT3546I",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA039"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH037"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Shimoga Wood Industries",
+      "pan": "CWGXT3546I",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA039"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS040"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Shimoga Wood Industries",
+      "pan": "CWGXT3546I",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH037"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS040"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Nandi Pharma",
+      "pan": "BJYZB6862G",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS044"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH041"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Cauvery Garments",
+      "pan": "VGUCW8711H",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH045"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA046"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Hassan Coffee",
+      "pan": "ULZDX4114I",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH049"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA051"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mandya Sugar",
+      "pan": "DKYRX5930M",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA054"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA055"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mandya Sugar",
+      "pan": "DKYRX5930M",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA054"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS056"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Mandya Sugar",
+      "pan": "DKYRX5930M",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA055"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS056"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Davangere Cotton",
+      "pan": "RATUC7965H",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA059"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA058"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Davangere Cotton",
+      "pan": "RATUC7965H",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA059"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS060"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Davangere Cotton",
+      "pan": "RATUC7965H",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA058"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS060"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Tumkur Plastics",
+      "pan": "IMBVK1320Y",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA063"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA062"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bidar Cement",
+      "pan": "LWEGI8449K",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH065"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA067"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Gulbarga Minerals",
+      "pan": "GMCYM5198Y",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS072"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA071"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Gulbarga Minerals",
+      "pan": "GMCYM5198Y",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS072"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH069"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Gulbarga Minerals",
+      "pan": "GMCYM5198Y",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA071"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH069"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Raichur Agro",
+      "pan": "WVCYQ8532W",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH073"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA074"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bellary Iron Works",
+      "pan": "WSHAY2402H",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA078"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS080"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bellary Iron Works",
+      "pan": "WSHAY2402H",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA078"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA079"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bellary Iron Works",
+      "pan": "WSHAY2402H",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS080"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA079"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Udupi Fish Exports",
+      "pan": "MSZNH2647G",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA082"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA083"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Dharwad Engineering",
+      "pan": "DTPUF9561M",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA086"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS088"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Chitradurga Granite",
+      "pan": "QXVBE6039T",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH089"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA090"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Kolar Gold Fields",
+      "pan": "XEPQM2494P",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH093"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA094"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Kolar Gold Fields",
+      "pan": "XEPQM2494P",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH093"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS096"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Kolar Gold Fields",
+      "pan": "XEPQM2494P",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA094"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS096"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Chikmagalur Estates",
+      "pan": "IAKFV2858O",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA098"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS100"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Chikmagalur Estates",
+      "pan": "IAKFV2858O",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA098"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH097"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Chikmagalur Estates",
+      "pan": "IAKFV2858O",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS100"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH097"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Hospet Power",
+      "pan": "OOLIE4912S",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA103"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH101"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Gadag Textiles",
+      "pan": "GRHFC2612Y",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA106"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA107"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Koppal Mining",
+      "pan": "LRXMH9955F",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH109"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS112"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Koppal Mining",
+      "pan": "LRXMH9955F",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH109"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA110"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Koppal Mining",
+      "pan": "LRXMH9955F",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS112"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA110"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Yadgir Farms",
+      "pan": "TCHTE3165Z",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA114"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH113"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bagalkot Sugar Mills",
+      "pan": "VYCGA6374T",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH117"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS120"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bagalkot Sugar Mills",
+      "pan": "VYCGA6374T",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH117"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA119"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Bagalkot Sugar Mills",
+      "pan": "VYCGA6374T",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS120"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA119"
+      },
+      "expected": "match"
+    },
+    {
+      "business": "Patel Chemicals Pvt Ltd",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA500"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS500"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Rao Agro Exports",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH501"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA501"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Reddy Steels Bangalore",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA502"
+      },
+      "record_b": {
+        "dept": "shop_est",
+        "local_id": "SH502"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Kumar Packaging",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA503"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS503"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Nagaraj Motors",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH504"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA504"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Gowda Rice Industries",
+      "record_a": {
+        "dept": "kspcb",
+        "local_id": "KS505"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA505"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Shetty Fisheries",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH506"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS506"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Joshi Precision Tools",
+      "record_a": {
+        "dept": "factories",
+        "local_id": "FA507"
+      },
+      "record_b": {
+        "dept": "labour",
+        "local_id": "LA507"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Hegde Spice Traders",
+      "record_a": {
+        "dept": "shop_est",
+        "local_id": "SH508"
+      },
+      "record_b": {
+        "dept": "factories",
+        "local_id": "FA508"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    },
+    {
+      "business": "Acharya Textiles Mill",
+      "record_a": {
+        "dept": "labour",
+        "local_id": "LA509"
+      },
+      "record_b": {
+        "dept": "kspcb",
+        "local_id": "KS509"
+      },
+      "expected": "review",
+      "design": "hard_pair_no_pan"
+    }
+  ],
+  "total_match_pairs": 64
+}

@@ -1,0 +1,532 @@
+[
+  {
+    "department": "shop_est",
+    "local_id": "SH009",
+    "business_name": "KA Engineering Works",
+    "address": "84 Market Road, Mangalore 590001",
+    "pin_code": "590001",
+    "pan": "VEJRS2169T",
+    "phone": "9283758720",
+    "registration_date": "2022-04-26"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH013",
+    "business_name": "Mysore Silk Factory",
+    "address": "No. 306, 4th Cross, Tumkur 590010",
+    "pin_code": "590010",
+    "pan": "XQDDT9830I",
+    "phone": "9727694430",
+    "registration_date": "2023-10-17"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH017",
+    "business_name": "Deccan Electronic Parts",
+    "address": "No. 431, 2nd Cross, Belgaum 577101",
+    "pin_code": "577101",
+    "pan": "LYWGN3927Q",
+    "phone": "9489747629",
+    "registration_date": "2021-02-24"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH021",
+    "business_name": "South India Traders",
+    "address": "No. 485, 3rd Cross, Davangere 560034",
+    "pin_code": "560034",
+    "pan": "OCTVZ9727Y",
+    "phone": "9122585366",
+    "registration_date": "2019-06-05"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH025",
+    "business_name": "Hubli Steel Wks",
+    "address": "264 KIADB Layout, Mysore 577101",
+    "pin_code": "577101",
+    "pan": "PFFBQ4750C",
+    "phone": "9133729406",
+    "registration_date": "2017-11-03"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH033",
+    "business_name": "Belagavi Auto",
+    "address": "No. 339, 2nd Cross, Bellary 570002",
+    "pin_code": "570002",
+    "pan": "KBJZG8454J",
+    "phone": "9847959430",
+    "registration_date": "2023-03-20"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH045",
+    "business_name": "Cauvery Garments Unit",
+    "address": "251 KIADB Layout, Bellary 590001",
+    "pin_code": "590001",
+    "pan": "XTEHF6617G",
+    "phone": "9841976666",
+    "registration_date": "2024-04-22"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH049",
+    "business_name": "Hassan Coffee",
+    "address": "499 Market Road, Tumkur 560011",
+    "pin_code": "560011",
+    "pan": "JYZBJ5088V",
+    "phone": "9605399561",
+    "registration_date": "2023-07-10"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH057",
+    "business_name": "Davangere Cotton Ltd",
+    "address": "461 MG Road, Bangalore 580030",
+    "pin_code": "580030",
+    "pan": "EZGCL6139N",
+    "phone": "9649136331",
+    "registration_date": "2024-11-05"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH073",
+    "business_name": "Raichur Agro Ltd",
+    "address": "Plot 383, IT Park, Bellary 570002",
+    "pin_code": "570002",
+    "pan": "GSSBK9890O",
+    "phone": "9166857303",
+    "registration_date": "2021-01-28"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH081",
+    "business_name": "Udupi Fish Exports Unit",
+    "address": "Plot 483, IT Park, Tumkur 570001",
+    "pin_code": "570001",
+    "pan": "GMCYM5198Y",
+    "phone": "9280162221",
+    "registration_date": "2021-11-08"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH085",
+    "business_name": "Dharwad Engineering Unit",
+    "address": "Plot 223, IT Park, Hubli 580020",
+    "pin_code": "580020",
+    "pan": "HRUUO1672L",
+    "phone": "9559967386",
+    "registration_date": "2020-08-19"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH089",
+    "business_name": "Chitradurga Granite Unit",
+    "address": "144 KIADB Layout, Shimoga 570001",
+    "pin_code": "570001",
+    "pan": "ORIMI8988G",
+    "phone": "9956665975",
+    "registration_date": "2025-03-25"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH093",
+    "business_name": "Kolar Gold Fields Unit",
+    "address": "360 KIADB Layout, Shimoga 590010",
+    "pin_code": "590010",
+    "pan": "KGRJO6632N",
+    "phone": "9690975123",
+    "registration_date": "2021-11-27"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH097",
+    "business_name": "Chikmagalur Estates Unit",
+    "address": "155 KIADB Layout, Hubli 560058",
+    "pin_code": "560058",
+    "pan": "MSZNH2647G",
+    "phone": "9344258191",
+    "registration_date": "2023-12-04"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH101",
+    "business_name": "Hospet Power",
+    "address": "Plot 306, IT Park, Gulbarga 570002",
+    "pin_code": "570002",
+    "pan": "MIZGW2869C",
+    "phone": "9628008852",
+    "registration_date": "2023-09-02"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH105",
+    "business_name": "Gadag Textiles Ltd",
+    "address": "No. 81, 2nd Cross, Mysore 560043",
+    "pin_code": "560043",
+    "pan": "LOBYC4404U",
+    "phone": "9384161612",
+    "registration_date": "2019-02-26"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH117",
+    "business_name": "Bagalkot Sugar Mills Ltd",
+    "address": "Plot 162, IT Park, Mysore 580020",
+    "pin_code": "580020",
+    "pan": "RWISH7561Y",
+    "phone": "9139403247",
+    "registration_date": "2024-01-17"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH121",
+    "address": "No. 256, 5th Cross, Hubli 560011",
+    "pin_code": "560011",
+    "pan": "SIAKF2858O",
+    "phone": "9857429971",
+    "registration_date": "2022-04-12",
+    "business_name": "Haveri Oil Works"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH125",
+    "address": "495 Industrial Area, Phase 3, Bellary 560001",
+    "pin_code": "560001",
+    "pan": "MXJZU3492P",
+    "phone": "9572775194",
+    "registration_date": "2024-03-23",
+    "business_name": "Dandeli Paper"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH129",
+    "address": "468 Industrial Area, Phase 2, Davangere 590001",
+    "pin_code": "590001",
+    "pan": "GKREE7267T",
+    "phone": "9595155950",
+    "registration_date": "2018-03-11",
+    "business_name": "Athani Sugar"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH133",
+    "address": "404 MG Road, Bangalore 590001",
+    "pin_code": "590001",
+    "pan": "QRSRV2591U",
+    "phone": "9722312633",
+    "registration_date": "2021-04-02",
+    "business_name": "Business_2"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH137",
+    "address": "24 MG Road, Bangalore 570002",
+    "pin_code": "570002",
+    "pan": "XFBVX5951U",
+    "phone": "9628951656",
+    "registration_date": "2024-01-16",
+    "business_name": "Business_6"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH141",
+    "address": "397 Industrial Area, Phase 2, Shimoga 560043",
+    "pin_code": "560043",
+    "pan": "GDOBT4394S",
+    "phone": "9103044648",
+    "registration_date": "2022-03-27",
+    "business_name": "Business_10"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH145",
+    "address": "Plot 272, IT Park, Gulbarga 570001",
+    "pin_code": "570001",
+    "pan": "BCPBH9984W",
+    "phone": "9642831335",
+    "registration_date": "2018-07-22",
+    "business_name": "Business_14"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH149",
+    "address": "294 MG Road, Bangalore 570001",
+    "pin_code": "570001",
+    "pan": "CNEMW6736R",
+    "phone": "9702332331",
+    "registration_date": "2016-09-26",
+    "business_name": "Business_18"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH153",
+    "address": "250 KIADB Layout, Gulbarga 560011",
+    "pin_code": "560011",
+    "pan": "LPKFN6655N",
+    "phone": "9336779871",
+    "registration_date": "2020-11-29",
+    "business_name": "Business_22"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH157",
+    "address": "262 Industrial Area, Phase 1, Mysore 570001",
+    "pin_code": "570001",
+    "pan": "GPNKI6562H",
+    "phone": "9647556857",
+    "registration_date": "2023-03-03",
+    "business_name": "Business_26"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH161",
+    "address": "Plot 78, IT Park, Bellary 580030",
+    "pin_code": "580030",
+    "pan": "JPYTB4084K",
+    "phone": "9211134294",
+    "registration_date": "2021-06-29",
+    "business_name": "Business_30"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH165",
+    "address": "159 MG Road, Bangalore 570001",
+    "pin_code": "570001",
+    "pan": "RVTRN7937Q",
+    "phone": "9466932310",
+    "registration_date": "2016-10-01",
+    "business_name": "Business_34"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH169",
+    "address": "Plot 284, IT Park, Shimoga 590001",
+    "pin_code": "590001",
+    "pan": "NKEFP5096B",
+    "phone": "9233871736",
+    "registration_date": "2022-02-23",
+    "business_name": "Business_38"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH173",
+    "address": "Plot 275, IT Park, Gulbarga 586101",
+    "pin_code": "586101",
+    "pan": "GDGQQ2029D",
+    "phone": "9717452511",
+    "registration_date": "2022-08-19",
+    "business_name": "Business_42"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH177",
+    "address": "478 MG Road, Bangalore 560043",
+    "pin_code": "560043",
+    "pan": "VBULH1717Z",
+    "phone": "9527589822",
+    "registration_date": "2019-04-03",
+    "business_name": "Business_46"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH181",
+    "address": "No. 187, 1st Cross, Tumkur 590001",
+    "pin_code": "590001",
+    "pan": "SXPLQ1939C",
+    "phone": "9253308283",
+    "registration_date": "2018-07-13",
+    "business_name": "Business_50"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH185",
+    "address": "407 Industrial Area, Phase 3, Hubli 586101",
+    "pin_code": "586101",
+    "pan": "ZZRSO5757J",
+    "phone": "9340777602",
+    "registration_date": "2023-12-25",
+    "business_name": "Business_54"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH189",
+    "address": "No. 141, 3rd Cross, Bellary 560043",
+    "pin_code": "560043",
+    "pan": "ISIYX2292I",
+    "phone": "9759737342",
+    "registration_date": "2019-05-12",
+    "business_name": "Business_58"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH193",
+    "address": "128 Market Road, Tumkur 586101",
+    "pin_code": "586101",
+    "pan": "IMGGC5754M",
+    "phone": "9720286733",
+    "registration_date": "2017-04-04",
+    "business_name": "Business_62"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH197",
+    "address": "261 Industrial Area, Phase 4, Gulbarga 560034",
+    "pin_code": "560034",
+    "pan": "DZKUI6990Y",
+    "phone": "9143223380",
+    "registration_date": "2024-11-01",
+    "business_name": "Business_66"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH201",
+    "address": "No. 211, 1st Cross, Mangalore 570002",
+    "pin_code": "570002",
+    "pan": "GOSEL7861E",
+    "phone": "9857820386",
+    "registration_date": "2023-10-18",
+    "business_name": "Business_70"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH205",
+    "address": "478 Market Road, Belgaum 586101",
+    "pin_code": "586101",
+    "pan": "YCYRT4505G",
+    "phone": "9217281149",
+    "registration_date": "2018-06-10",
+    "business_name": "Business_74"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH209",
+    "address": "Plot 269, IT Park, Bellary 560058",
+    "pin_code": "560058",
+    "pan": "ZYWAO2758K",
+    "phone": "9641394238",
+    "registration_date": "2020-02-04",
+    "business_name": "Business_78"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH213",
+    "address": "491 Industrial Area, Phase 2, Mangalore 580030",
+    "pin_code": "580030",
+    "pan": "NXSID5833L",
+    "phone": "9264481748",
+    "registration_date": "2020-03-29",
+    "business_name": "Business_82"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH217",
+    "address": "278 KIADB Layout, Mysore 570002",
+    "pin_code": "570002",
+    "pan": "USKVT2196B",
+    "phone": "9606882594",
+    "registration_date": "2024-12-27",
+    "business_name": "Business_86"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH221",
+    "address": "225 MG Road, Bangalore 590010",
+    "pin_code": "590010",
+    "pan": "GBPLR1797H",
+    "phone": "9333291033",
+    "registration_date": "2016-11-19",
+    "business_name": "Business_90"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH225",
+    "address": "170 KIADB Layout, Mangalore 560043",
+    "pin_code": "560043",
+    "pan": "UXOZO3196M",
+    "phone": "9498441427",
+    "registration_date": "2024-04-22",
+    "business_name": "Business_94"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH229",
+    "address": "118 Industrial Area, Phase 4, Shimoga 560034",
+    "pin_code": "560034",
+    "pan": "KOFDG7841J",
+    "phone": "9994816400",
+    "registration_date": "2022-08-03",
+    "business_name": "Business_98"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH233",
+    "address": "471 Industrial Area, Phase 1, Mysore 577101",
+    "pin_code": "577101",
+    "pan": "SNHNS8054Z",
+    "phone": "9259877461",
+    "registration_date": "2022-08-22",
+    "business_name": "Business_102"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH237",
+    "address": "386 Market Road, Hubli 560043",
+    "pin_code": "560043",
+    "pan": "YXOAY6152A",
+    "phone": "9421346113",
+    "registration_date": "2023-07-10",
+    "business_name": "Business_106"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH241",
+    "address": "221 MG Road, Bangalore 560034",
+    "pin_code": "560034",
+    "pan": "ICAIJ5419D",
+    "phone": "9695647539",
+    "registration_date": "2019-08-07",
+    "business_name": "Business_110"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH245",
+    "address": "246 Market Road, Mangalore 570001",
+    "pin_code": "570001",
+    "pan": "UIIVW3230J",
+    "phone": "9527606494",
+    "registration_date": "2021-10-06",
+    "business_name": "Business_114"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH249",
+    "address": "No. 86, 5th Cross, Shimoga 560043",
+    "pin_code": "560043",
+    "pan": "ZSVPX2791Y",
+    "phone": "9792596980",
+    "registration_date": "2017-09-30",
+    "business_name": "Business_118"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH253",
+    "address": "Plot 119, IT Park, Davangere 580020",
+    "pin_code": "580020",
+    "pan": "CUYTN3623K",
+    "phone": "9300131434",
+    "registration_date": "2018-02-28",
+    "business_name": "Business_122"
+  },
+  {
+    "department": "shop_est",
+    "local_id": "SH257",
+    "address": "285 Market Road, Hubli 590001",
+    "pin_code": "590001",
+    "pan": "SNKDJ4043P",
+    "phone": "9410133983",
+    "registration_date": "2023-10-09",
+    "business_name": "Business_126"
+  }
+]
