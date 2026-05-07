@@ -75,6 +75,82 @@ def startup_db_check() -> None:
         logger.error("PostgreSQL connection FAILED: %s", exc)
 
 
+@app.on_event("startup")
+def auto_seed() -> None:
+    """Auto-seed all data stores on startup for dev/demo.
+
+    Runs the full pipeline so all APIs return real data
+    with zero manual steps after docker-compose up.
+    """
+    from backend.adapters.shop_establishment import ShopEstablishmentAdapter
+    from backend.adapters.factories import FactoriesAdapter
+    from backend.adapters.labour import LabourAdapter
+    from backend.adapters.kspcb import KSPCBAdapter
+    from backend.resolution.blocker import generate_candidate_pairs
+    from backend.resolution.scorer import score_pair, train_model
+    from backend.resolution.feature_engineer import compute_features
+    from backend.resolution.ubid_assigner import assign_ubids
+    from backend.api.routes.reviewer import seed_reviewer_queue
+    from backend.api.routes.analytics import load_analytics_data
+    from backend.intelligence.classifier import classify_all
+    from backend.intelligence.event_ingestion import (
+        generate_lifecycle_events, get_all_events,
+    )
+    from backend.intelligence.attribution import load_ubid_mapping, attribute_all
+
+    # Step 1: Ingest from all adapters
+    all_records = []
+    for Cls in [ShopEstablishmentAdapter, FactoriesAdapter, LabourAdapter, KSPCBAdapter]:
+        adapter = Cls()
+        records = adapter.fetch_records()
+        all_records.extend(records)
+        logger.info("Ingested %d records from %s", len(records), adapter.department_name)
+
+    # Step 2: Train model (loads from disk if exists) and run resolution
+    train_model()
+    pairs = generate_candidate_pairs(all_records)
+    logger.info("Generated %d candidate pairs", len(pairs))
+
+    scored_pairs = []
+    for rec_a, rec_b in pairs:
+        features = compute_features(rec_a, rec_b)
+        conf = score_pair(rec_a, rec_b)
+        scored_pairs.append((rec_a, rec_b, conf, features))
+
+    result = assign_ubids(all_records, scored_pairs)
+    unique_ubids = list(set(result.ubid_map.values()))
+
+    # Step 3: Load analytics data stores
+    load_analytics_data(result.ubid_map, all_records)
+
+    # Step 4: Generate lifecycle events (40% active, 40% dormant, 20% closed)
+    generate_lifecycle_events(
+        result.ubid_map,
+        target_active_pct=0.40,
+        target_dormant_pct=0.40,
+    )
+
+    # Step 5: Attribute events to UBIDs
+    load_ubid_mapping(result.ubid_map)
+    all_events = get_all_events()
+    attribute_all(all_events)
+    logger.info("Attributed %d events to UBIDs", len(all_events))
+
+    # Step 6: Classify all UBIDs (Active/Dormant/Closed)
+    classify_all(unique_ubids)
+
+    # Step 7: Seed reviewer queue with review-band pairs (0.55 ≤ score < 0.88)
+    review_pairs = [
+        (a, b, s, f) for a, b, s, f in scored_pairs if 0.55 <= s < 0.88
+    ]
+    seed_reviewer_queue(review_pairs)
+
+    logger.info(
+        "Startup complete — %d UBIDs, %d reviewer cases",
+        len(unique_ubids), len(review_pairs),
+    )
+
+
 @app.get("/", tags=["health"])
 def health_check() -> dict:
     """Root health-check endpoint."""

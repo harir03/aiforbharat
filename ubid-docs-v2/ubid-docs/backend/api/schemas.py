@@ -18,6 +18,7 @@ class RecordDetail(BaseModel):
     name_raw: Optional[str] = None
     name_normalised: Optional[str] = None
     address_raw: Optional[str] = None
+    address: Optional[str] = None          # Fix 5: alias for address_raw
     pin_code: Optional[str] = None
     pan: Optional[str] = None
     gstin: Optional[str] = None
@@ -35,6 +36,13 @@ class FieldDiff(BaseModel):
     matches: bool = False
 
 
+class ShapFeature(BaseModel):
+    """Single SHAP feature importance value."""
+
+    feature: str
+    value: float
+
+
 class CaseDetail(BaseModel):
     """Full case detail for reviewer queue."""
 
@@ -42,9 +50,11 @@ class CaseDetail(BaseModel):
     record_a: RecordDetail
     record_b: RecordDetail
     confidence: float
-    shap_values: dict[str, float] = Field(default_factory=dict)
+    shap_values: list[ShapFeature] = Field(default_factory=list)  # Fix 2
     features: dict[str, float] = Field(default_factory=dict)
     field_diffs: list[FieldDiff] = Field(default_factory=list)
+    explanation: str = ""                   # Added for frontend
+    age_hours: float = 0.0                  # Added for frontend
     created_at: Optional[datetime] = None
 
 
@@ -66,19 +76,23 @@ class QueueResponse(BaseModel):
 
     items: list[QueueItem]
     total: int
-    has_stale: bool = False  # True if any case > 72 hours old
+    has_stale: bool = False
+    stale_count: int = 0                    # Fix 6
 
 
 class ReviewAction(BaseModel):
     """Payload for approve/reject/defer/escalate actions."""
 
-    reviewer_id: str = "anonymous"
+    reviewer_id: str = "system"             # Fix 3: default changed
     note: Optional[str] = None
+    reason: Optional[str] = None            # Fix 3: accept both
 
 
 class ActionResponse(BaseModel):
     """Response after a reviewer action."""
 
+    success: bool = True                    # Fix 4
+    message: str = ""                       # Fix 4
     status: str
     case_id: str
     resolution: str

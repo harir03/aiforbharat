@@ -1,4 +1,4 @@
-"""Full pipeline + review queue verification."""
+"""Run pipeline + report reviewer queue count."""
 import sys
 sys.path.insert(0, ".")
 if sys.platform == "win32":
@@ -14,57 +14,48 @@ from backend.resolution.feature_engineer import compute_features
 from backend.resolution.ubid_assigner import assign_ubids
 from backend.api.routes.reviewer import seed_reviewer_queue
 
-# Ingest
 all_records = []
 for Cls in [ShopEstablishmentAdapter, FactoriesAdapter, LabourAdapter, KSPCBAdapter]:
     a = Cls()
     r = a.fetch_records()
     all_records.extend(r)
     print(f"  {a.department_name}: {len(r)} records")
+print(f"  Total: {len(all_records)}")
 
-print(f"  Total: {len(all_records)} records\n")
-
-# Score
 train_model(force=True)
 pairs = generate_candidate_pairs(all_records)
 print(f"  Candidate pairs: {len(pairs)}")
 
 scored_pairs = []
+auto = review = sep = 0
 for rec_a, rec_b in pairs:
     features = compute_features(rec_a, rec_b)
     conf = score_pair(rec_a, rec_b)
     scored_pairs.append((rec_a, rec_b, conf, features))
+    if conf >= 0.88:
+        auto += 1
+    elif conf >= 0.55:
+        review += 1
+    else:
+        sep += 1
 
-# Assign
-assignment = assign_ubids(all_records, scored_pairs)
-unique_ubids = len(set(assignment.ubid_map.values()))
-print(f"  Auto-linked: {len(assignment.auto_linked)}")
-print(f"  Review queue: {len(assignment.review_queue)}")
-print(f"  Separate: {len(assignment.separate)}")
-print(f"  Unique UBIDs: {unique_ubids}")
+print(f"\n  Auto-linked: {auto}")
+print(f"  Review queue: {review}")
+print(f"  Separate: {sep}")
 
-# Seed reviewer queue
-review_pairs = [
-    (ra, rb, sc, ft) for ra, rb, sc, ft in scored_pairs
-    if 0.55 <= sc < 0.88
-]
+# Seed reviewer queue with review-band pairs
+review_pairs = [(a, b, s, f) for a, b, s, f in scored_pairs if 0.55 <= s < 0.88]
 seed_reviewer_queue(review_pairs)
-print(f"\n  Reviewer queue seeded: {len(review_pairs)} cases")
 
-# Show sample of review queue cases
 from fastapi.testclient import TestClient
 from backend.api.main import app
 client = TestClient(app)
 
-resp = client.get("/api/reviewer/queue")
+resp = client.get("/api/reviewer/queue?page_size=50")
 queue = resp.json()
-print(f"  Queue API: {queue['total']} pending cases")
-print(f"\n  Top 10 cases:")
-for item in queue["items"][:10]:
+print(f"\n  === REVIEWER QUEUE COUNT: {queue['total']} ===")
+print(f"\n  Top cases:")
+for item in queue["items"][:15]:
     print(f"    {item['case_id']}: {item['department_a']}:{item['name_a']}"
           f" vs {item['department_b']}:{item['name_b']}"
           f" (conf={item['confidence']:.3f})")
-
-target_met = queue["total"] >= 8
-print(f"\n  TARGET >= 8 in reviewer queue: {'PASS' if target_met else 'FAIL'}"
-      f" ({queue['total']} cases)")

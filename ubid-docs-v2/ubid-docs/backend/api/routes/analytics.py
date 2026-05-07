@@ -105,21 +105,27 @@ def search_ubid(
             "ubid": ubid,
             "anchor_type": _ubid_registry.get(ubid, {}).get("anchor_type", "INT"),
             "name": rec.get("name_raw"),
-            "department": rec.get("department"),
             "pin_code": rec.get("pin_code"),
             "status": classification.status if classification else "unclassified",
             "confidence": classification.confidence if classification else 0.0,
         })
 
-    # Deduplicate by UBID (multiple records may map to same UBID)
-    seen: set[str] = set()
-    unique_results: list[dict] = []
+    # Deduplicate by UBID and collect all departments (Fix 1)
+    seen: dict[str, dict] = {}
     for r in results:
-        if r["ubid"] not in seen:
-            seen.add(r["ubid"])
-            unique_results.append(r)
+        uid = r["ubid"]
+        if uid not in seen:
+            # Collect ALL departments for this UBID
+            registry = _ubid_registry.get(uid, {})
+            all_depts: set[str] = set()
+            for rk in registry.get("linked_records", []):
+                rd = _record_index.get(rk, {})
+                if rd.get("department"):
+                    all_depts.add(rd["department"])
+            r["departments"] = sorted(all_depts) if all_depts else []
+            seen[uid] = r
 
-    return unique_results[:50]  # Cap at 50 results
+    return list(seen.values())[:50]  # Cap at 50 results
 
 
 @router.get("/api/ubid/{ubid}")

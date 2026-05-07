@@ -161,9 +161,13 @@ def load_model() -> CalibratedClassifierCV:
 def score_pair(record_a: CanonicalRecord, record_b: CanonicalRecord) -> float:
     """Score a candidate pair. Returns calibrated probability 0.0-1.0.
 
-    Post-hoc business rule: if neither PAN nor phone confirms the match,
-    the raw score is dampened to force human review. Rationale: name
-    similarity alone should NEVER auto-link without identifier confirmation.
+    Post-hoc business rule: when BOTH records lack PAN entirely and
+    phones don't match, the raw score is dampened to force human review.
+    Rationale: name similarity alone with no identifier to confirm or
+    deny should go to human review, not auto-link.
+
+    This does NOT apply when both records have PAN but it differs —
+    that's a legitimate non-match signal the model should score low.
     """
     model = load_model()
     feats = compute_features(record_a, record_b)
@@ -174,12 +178,16 @@ def score_pair(record_a: CanonicalRecord, record_b: CanonicalRecord) -> float:
     has_pan_confirm = feats.get("pan_prefix_match", 0) == 1
     has_phone_confirm = feats.get("phone_match", 0) == 1
 
-    if not has_pan_confirm and not has_phone_confirm and prob > 0.55:
-        # Dampen: high name similarity without identifier confirmation
+    # Only dampen when BOTH records have NO PAN at all (hard-pair scenario)
+    both_missing_pan = (not record_a.pan) and (not record_b.pan)
+
+    if (both_missing_pan and not has_pan_confirm
+            and not has_phone_confirm and prob > 0.55):
+        # Dampen: high name similarity without any identifier
         # Maps ~0.96 -> ~0.67, ensuring review queue landing
         prob = 0.55 + (prob - 0.55) * 0.30
         logger.debug(
-            "Score dampened (no PAN/phone confirm): %.3f for %s vs %s",
+            "Score dampened (no PAN/phone): %.3f for %s vs %s",
             prob, record_a.local_id, record_b.local_id,
         )
 

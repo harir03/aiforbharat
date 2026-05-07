@@ -27,6 +27,7 @@ from backend.api.schemas import (
     QueueResponse,
     RecordDetail,
     ReviewAction,
+    ShapFeature,
 )
 from backend.resolution.normaliser import normalise_name, normalise_address
 from backend.resolution.scorer import explain_pair
@@ -73,6 +74,7 @@ def _record_to_detail(rec: CanonicalRecord) -> RecordDetail:
         name_raw=rec.name_raw,
         name_normalised=normalise_name(rec.name_raw),
         address_raw=rec.address_raw,
+        address=rec.address_raw,       # Fix 5: alias for address_raw
         pin_code=rec.pin_code,
         pan=rec.pan,
         gstin=rec.gstin,
@@ -138,12 +140,14 @@ def get_queue(page: int = 1, page_size: int = 20) -> QueueResponse:
 
     now = datetime.now(timezone.utc)
     has_stale = False
+    stale_count = 0                        # Fix 6
 
     items: list[QueueItem] = []
     for case in page_items:
         age = (now - case["created_at"]).total_seconds() / 3600
         if age > QUEUE_AGE_ALERT_HOURS:
             has_stale = True
+            stale_count += 1               # Fix 6
         items.append(QueueItem(
             case_id=case["case_id"],
             name_a=case["record_a"].name_raw,
@@ -155,7 +159,10 @@ def get_queue(page: int = 1, page_size: int = 20) -> QueueResponse:
             age_hours=round(age, 1),
         ))
 
-    return QueueResponse(items=items, total=total, has_stale=has_stale)
+    return QueueResponse(
+        items=items, total=total,
+        has_stale=has_stale, stale_count=stale_count,
+    )
 
 
 @router.get("/queue/{case_id}", response_model=CaseDetail)
@@ -173,16 +180,37 @@ def get_case_detail(case_id: str) -> CaseDetail:
     diffs = _compute_field_diffs(detail_a, detail_b)
 
     # SHAP / feature importance
-    shap_values = explain_pair(rec_a, rec_b)
+    shap_dict = explain_pair(rec_a, rec_b)
+
+    # Fix 2: transform dict → list[ShapFeature]
+    shap_list = [
+        ShapFeature(feature=k, value=round(v, 6))
+        for k, v in shap_dict.items()
+    ]
+
+    # Build explanation from top SHAP features
+    sorted_feats = sorted(shap_dict.items(), key=lambda x: abs(x[1]), reverse=True)
+    top_3 = sorted_feats[:3]
+    parts = [
+        f"{name.replace('_', ' ')} ({'+' if v > 0 else ''}{v:.3f})"
+        for name, v in top_3
+    ]
+    explanation = f"Top signals: {', '.join(parts)}"
+
+    # Age hours
+    now = datetime.now(timezone.utc)
+    age_hours = (now - case["created_at"]).total_seconds() / 3600
 
     return CaseDetail(
         case_id=case["case_id"],
         record_a=detail_a,
         record_b=detail_b,
         confidence=case["confidence"],
-        shap_values=shap_values,
+        shap_values=shap_list,
         features=case["features"],
         field_diffs=diffs,
+        explanation=explanation,
+        age_hours=round(age_hours, 1),
         created_at=case["created_at"],
     )
 
@@ -195,8 +223,11 @@ def _resolve_case(case_id: str, resolution: str, action: ReviewAction) -> Action
     if case["status"] != "pending":
         raise HTTPException(status_code=400, detail=f"Case already resolved: {case['status']}")
 
+    # Fix 3: accept both "reason" and "note"
+    resolved_note = action.reason or action.note
+
     # Reject and Escalate require a note (PRD Feature A6)
-    if resolution in ("rejected", "escalated") and not action.note:
+    if resolution in ("rejected", "escalated") and not resolved_note:
         raise HTTPException(status_code=422, detail=f"Note is required for {resolution}")
 
     case["status"] = resolution
@@ -211,7 +242,7 @@ def _resolve_case(case_id: str, resolution: str, action: ReviewAction) -> Action
         "features": case["features"],
         "resolution": resolution,
         "reviewer_id": action.reviewer_id,
-        "reviewer_note": action.note,
+        "reviewer_note": resolved_note,
         "resolved_at": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -228,7 +259,10 @@ def _resolve_case(case_id: str, resolution: str, action: ReviewAction) -> Action
     # Find next case
     next_id = _next_pending_case(exclude_id=case_id)
 
+    # Fix 4: add success + message
     return ActionResponse(
+        success=True,
+        message=f"Case {case_id} {resolution} successfully",
         status="ok",
         case_id=case_id,
         resolution=resolution,
@@ -257,7 +291,14 @@ def defer_case(case_id: str, action: ReviewAction = ReviewAction()) -> ActionRes
     # Keep status as pending, just log the deferral
     logger.info("Case %s deferred by %s", case_id, action.reviewer_id)
     next_id = _next_pending_case(exclude_id=case_id)
-    return ActionResponse(status="ok", case_id=case_id, resolution="deferred", next_case_id=next_id)
+    return ActionResponse(
+        success=True,
+        message=f"Case {case_id} deferred successfully",
+        status="ok",
+        case_id=case_id,
+        resolution="deferred",
+        next_case_id=next_id,
+    )
 
 
 @router.post("/queue/{case_id}/escalate", response_model=ActionResponse)

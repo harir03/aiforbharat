@@ -1,0 +1,42 @@
+# render.yaml — Blueprint for UBID Intelligence Platform
+# Docs: https://docs.render.com/blueprint-spec
+
+services:
+  # ─── Frontend (Next.js) ─────────────────────────────────────────
+  - type: web
+    name: ubid-frontend
+    runtime: node
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://ubid-backend.onrender.com
+    autoDeploy: true
+
+  # ─── Backend (FastAPI) ──────────────────────────────────────────
+  - type: web
+    name: ubid-backend
+    runtime: python
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ubid-db
+          property: connectionString
+    autoDeploy: true
+
+  # ─── PostgreSQL ─────────────────────────────────────────────────
+databases:
+  - name: ubid-db
+    plan: free
+    region: oregon
+    databaseName: ubid_db
+    user: ubid
