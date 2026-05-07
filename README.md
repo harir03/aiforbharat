@@ -44,7 +44,7 @@ UBID resolves the fragmented identity problem across government departments by c
 
 ```bash
 git clone <repository-url>
-cd ubid-docs
+cd aiforbharat
 
 # Python dependencies
 pip install -r requirements.txt
@@ -154,7 +154,7 @@ npm run dev
 ### Integration Test (Full E2E)
 
 ```bash
-python integration_test.py
+python scripts/integration_test.py
 ```
 
 Validates all 7 prompts:
@@ -168,11 +168,10 @@ Validates all 7 prompts:
 ### Phase-Level Validation
 
 ```bash
-python validate_phase2.py   # Data ingestion
-python validate_phase3.py   # Normalisation & blocking
-python validate_phase4.py   # Scoring & UBID assignment
-python validate_phase5.py   # Reviewer workflow
-python validate_phase6.py   # Activity intelligence
+python scripts/validate_phase2.py     # Data ingestion
+python scripts/validate_phase3_4.py   # Normalisation, blocking, scoring
+python scripts/validate_phase5.py     # Reviewer workflow
+python scripts/validate_phase6.py     # Activity intelligence
 ```
 
 ---
@@ -245,49 +244,57 @@ curl -X POST http://localhost:8000/api/analytics/query \
 ## Project Structure
 
 ```
-ubid-docs/
+aiforbharat/
 ├── backend/
-│   ├── adapters/           # Department-specific data adapters
-│   │   ├── base.py         # Abstract adapter interface
+│   ├── adapters/              # Department-specific data adapters
+│   │   ├── base.py            # Abstract adapter + CanonicalRecord
 │   │   ├── shop_establishment.py
 │   │   ├── factories.py
 │   │   ├── labour.py
 │   │   └── kspcb.py
 │   ├── api/
-│   │   ├── main.py         # FastAPI application
-│   │   ├── schemas.py      # Pydantic models
+│   │   ├── main.py            # FastAPI app + auto-seed startup
+│   │   ├── schemas.py         # Pydantic request/response models
 │   │   └── routes/
-│   │       ├── reviewer.py # Reviewer queue endpoints
-│   │       └── analytics.py # UBID search & analytics
+│   │       ├── reviewer.py    # Reviewer queue + SHAP
+│   │       └── analytics.py   # UBID search & analytics
 │   ├── db/
-│   │   ├── models.py       # SQLAlchemy models
+│   │   ├── models.py          # SQLAlchemy ORM (5 tables)
 │   │   ├── seed_synthetic.py
-│   │   └── synthetic/      # Generated JSON data files
+│   │   └── synthetic/         # Generated JSON data files
 │   ├── intelligence/
-│   │   ├── event_ingestion.py  # B1: Event polling
-│   │   ├── attribution.py     # B2: UBID attribution
-│   │   └── classifier.py      # B3+B4: Activity classification
+│   │   ├── event_ingestion.py # Lifecycle event generation
+│   │   ├── attribution.py    # UBID ↔ event linking
+│   │   └── classifier.py     # XGBoost Active/Dormant/Closed
 │   └── resolution/
-│       ├── normaliser.py   # Name & address normalisation
-│       ├── blocker.py      # Candidate pair generation
-│       ├── feature_engineer.py # Pairwise feature computation
-│       ├── scorer.py       # XGBoost scoring + SHAP
-│       └── ubid_assigner.py # UBID generation & assignment
+│       ├── normaliser.py      # Name & address normalisation
+│       ├── blocker.py         # Candidate pair generation
+│       ├── feature_engineer.py# 9 pairwise features
+│       ├── scorer.py          # XGBoost scoring + SHAP
+│       └── ubid_assigner.py   # UBID generation & assignment
 ├── frontend/
-│   ├── pages/
-│   │   ├── reviewer.tsx    # Human reviewer dashboard
-│   │   └── analytics.tsx   # Analytics & search dashboard
-│   └── components/
-│       ├── RecordComparison.tsx  # Side-by-side record view
-│       ├── ShapChart.tsx         # SHAP importance chart
-│       └── EventTimeline.tsx     # Activity event timeline
+│   └── src/
+│       ├── app/(admin)/       # Next.js App Router pages
+│       │   ├── dashboard/     # Stat cards + UBID search
+│       │   ├── reviewer/      # Human review queue
+│       │   └── analytics/     # Timeline + query builder
+│       ├── components/
+│       │   ├── dashboard/     # StatCard, SearchSection, ResultsTable
+│       │   └── reviewer/      # RecordComparison, ShapChart, ActionBar
+│       └── lib/api.ts         # Type-safe API client
+├── scripts/
+│   ├── run_pipeline.py        # Manual pipeline runner
+│   ├── generate_synthetic.py  # Synthetic data generator
+│   ├── integration_test.py    # Full E2E test suite
+│   └── validate_phase*.py     # Per-phase validators
 ├── docs/
 │   ├── PRD.md
-│   ├── TECHNICAL_SPEC.md
-│   └── RULES.md
+│   └── TECHNICAL_SPEC.md
 ├── docker-compose.yml
+├── Dockerfile
 ├── requirements.txt
-├── integration_test.py
+├── vercel.json                # Vercel deployment config
+├── render.yaml                # Render deployment blueprint
 └── README.md
 ```
 
