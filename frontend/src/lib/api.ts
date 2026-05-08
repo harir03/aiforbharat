@@ -1,5 +1,13 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
+/**
+ * When true, API calls that fail will transparently return mock data
+ * so the UI is always populated. Set NEXT_PUBLIC_USE_MOCK=false to
+ * force live-only mode.
+ */
+const USE_MOCK_FALLBACK =
+  process.env.NEXT_PUBLIC_USE_MOCK !== "false";
+
 // ─── Summary ─────────────────────────────────────────────────────────
 
 export interface SummaryResponse {
@@ -86,62 +94,7 @@ export interface SearchResult {
   explanation: string;
 }
 
-// ─── API Fetch Utility ───────────────────────────────────────────────
-
-async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, {
-    headers: { "Content-Type": "application/json" },
-    ...options,
-  });
-  if (!res.ok) {
-    throw new Error(`API error ${res.status}: ${res.statusText}`);
-  }
-  return res.json();
-}
-
-// ─── Summary ─────────────────────────────────────────────────────────
-
-export async function fetchSummary(): Promise<SummaryResponse> {
-  return apiFetch<SummaryResponse>("/api/analytics/summary");
-}
-
-// ─── Reviewer ────────────────────────────────────────────────────────
-
-export async function fetchReviewerQueue(
-  page = 1,
-  pageSize = 20
-): Promise<QueueResponse> {
-  return apiFetch<QueueResponse>(
-    `/api/reviewer/queue?page=${page}&page_size=${pageSize}`
-  );
-}
-
-export async function fetchReviewCase(caseId: string): Promise<ReviewCase> {
-  return apiFetch<ReviewCase>(`/api/reviewer/queue/${caseId}`);
-}
-
-export async function submitReviewAction(
-  caseId: string,
-  payload: ReviewActionPayload
-): Promise<ReviewActionResponse> {
-  return apiFetch<ReviewActionResponse>(`/api/reviewer/queue/${caseId}/${payload.action}`, {
-    method: "POST",
-    body: JSON.stringify({ reason: payload.reason }),
-  });
-}
-
-// ─── Search ──────────────────────────────────────────────────────────
-
-export async function searchUBIDs(
-  query: string,
-  pin?: string
-): Promise<SearchResult[]> {
-  const params = new URLSearchParams({ q: query });
-  if (pin) params.set("pin", pin);
-  return apiFetch<SearchResult[]>(`/api/ubid/search?${params.toString()}`);
-}
-
-// ─── Analytics: UBID Detail ──────────────────────────────────────────
+// ─── Analytics ───────────────────────────────────────────────────────
 
 export interface UbidDetail {
   ubid: string;
@@ -182,21 +135,6 @@ export interface QueryResult {
   last_event_days: number;
 }
 
-export async function fetchUbidDetail(ubid: string): Promise<UbidDetail> {
-  return apiFetch<UbidDetail>(`/api/ubid/${ubid}`);
-}
-
-export async function fetchUbidEvents(ubid: string): Promise<ActivityEvent[]> {
-  return apiFetch<ActivityEvent[]>(`/api/ubid/${ubid}/events`);
-}
-
-export async function runAnalyticsQuery(payload: QueryPayload): Promise<QueryResult[]> {
-  return apiFetch<QueryResult[]>("/api/analytics/query", {
-    method: "POST",
-    body: JSON.stringify(payload),
-  });
-}
-
 // ─── Audit ───────────────────────────────────────────────────────────
 
 export interface AuditEntry {
@@ -213,6 +151,179 @@ export interface AuditEntry {
   ubid?: string;
 }
 
+// ─── API Fetch Utility ───────────────────────────────────────────────
+
+async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
+  const res = await fetch(`${API_URL}${path}`, {
+    headers: { "Content-Type": "application/json" },
+    ...options,
+  });
+  if (!res.ok) {
+    throw new Error(`API error ${res.status}: ${res.statusText}`);
+  }
+  return res.json();
+}
+
+// ─── Lazy-loaded mock data ──────────────────────────────────────────
+
+let _mockModule: typeof import("./mock-data") | null = null;
+
+async function getMock() {
+  if (!_mockModule) {
+    _mockModule = await import("./mock-data");
+  }
+  return _mockModule;
+}
+
+/**
+ * Try the live API first; on any failure, fall back to mock data.
+ * Mock resolver receives the lazy-loaded mock module.
+ */
+async function fetchWithMock<T>(
+  path: string,
+  mockResolver: (m: typeof import("./mock-data")) => T,
+  options?: RequestInit,
+): Promise<T> {
+  if (!USE_MOCK_FALLBACK) {
+    return apiFetch<T>(path, options);
+  }
+  try {
+    return await apiFetch<T>(path, options);
+  } catch {
+    console.warn(`[UBID] API unreachable for ${path} — using demo data`);
+    await new Promise((r) => setTimeout(r, 400 + Math.random() * 300));
+    const m = await getMock();
+    return mockResolver(m);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  PUBLIC API FUNCTIONS
+// ═══════════════════════════════════════════════════════════════════════
+
+// ─── Summary ─────────────────────────────────────────────────────────
+
+export async function fetchSummary(): Promise<SummaryResponse> {
+  return fetchWithMock("/api/analytics/summary", (m) => m.MOCK_SUMMARY);
+}
+
+// ─── Reviewer ────────────────────────────────────────────────────────
+
+export async function fetchReviewerQueue(
+  page = 1,
+  pageSize = 20
+): Promise<QueueResponse> {
+  return fetchWithMock(
+    `/api/reviewer/queue?page=${page}&page_size=${pageSize}`,
+    (m) => m.MOCK_QUEUE,
+  );
+}
+
+export async function fetchReviewCase(caseId: string): Promise<ReviewCase> {
+  return fetchWithMock(
+    `/api/reviewer/queue/${caseId}`,
+    (m) => {
+      const found = m.MOCK_REVIEW_CASES[caseId];
+      if (found) return found;
+      const keys = Object.keys(m.MOCK_REVIEW_CASES);
+      return m.MOCK_REVIEW_CASES[keys[0]];
+    },
+  );
+}
+
+export async function submitReviewAction(
+  caseId: string,
+  payload: ReviewActionPayload
+): Promise<ReviewActionResponse> {
+  return fetchWithMock(
+    `/api/reviewer/queue/${caseId}/${payload.action}`,
+    (m) => ({
+      success: true,
+      message: `[Demo] Case ${caseId} ${payload.action}d successfully`,
+      next_case_id: m.MOCK_QUEUE.items[1]?.case_id,
+    }),
+    {
+      method: "POST",
+      body: JSON.stringify({ reason: payload.reason }),
+    },
+  );
+}
+
+// ─── Search ──────────────────────────────────────────────────────────
+
+export async function searchUBIDs(
+  query: string,
+  pin?: string
+): Promise<SearchResult[]> {
+  const params = new URLSearchParams({ q: query });
+  if (pin) params.set("pin", pin);
+  return fetchWithMock(
+    `/api/ubid/search?${params.toString()}`,
+    (m) => {
+      const lower = query.toLowerCase();
+      return m.MOCK_SEARCH_RESULTS.filter(
+        (r) =>
+          r.name.toLowerCase().includes(lower) ||
+          r.ubid.toLowerCase().includes(lower) ||
+          r.departments.some((d) => d.toLowerCase().includes(lower)) ||
+          lower.length < 3,
+      );
+    },
+  );
+}
+
+// ─── Analytics: UBID Detail ──────────────────────────────────────────
+
+export async function fetchUbidDetail(ubid: string): Promise<UbidDetail> {
+  return fetchWithMock(
+    `/api/ubid/${ubid}`,
+    (m) => {
+      const found = m.MOCK_UBID_DETAIL[ubid];
+      if (found) return found;
+      const keys = Object.keys(m.MOCK_UBID_DETAIL);
+      return m.MOCK_UBID_DETAIL[keys[0]];
+    },
+  );
+}
+
+export async function fetchUbidEvents(ubid: string): Promise<ActivityEvent[]> {
+  return fetchWithMock(
+    `/api/ubid/${ubid}/events`,
+    (m) => m.MOCK_EVENTS[ubid] || m.MOCK_EVENTS["UBID-KA-2024-00142"],
+  );
+}
+
+export async function runAnalyticsQuery(
+  payload: QueryPayload
+): Promise<QueryResult[]> {
+  return fetchWithMock(
+    "/api/analytics/query",
+    (m) => {
+      let results = [...m.MOCK_QUERY_RESULTS];
+      if (payload.status) {
+        results = results.filter((r) => r.status === payload.status);
+      }
+      if (payload.department) {
+        results = results.filter((r) => r.department === payload.department);
+      }
+      if (payload.pin_code) {
+        results = results.filter((r) => r.pin_code === payload.pin_code);
+      }
+      if (payload.no_inspection_months) {
+        const dayThreshold = payload.no_inspection_months * 30;
+        results = results.filter((r) => r.last_event_days >= dayThreshold);
+      }
+      return results;
+    },
+    {
+      method: "POST",
+      body: JSON.stringify(payload),
+    },
+  );
+}
+
+// ─── Audit ───────────────────────────────────────────────────────────
+
 export async function fetchAuditLog(): Promise<AuditEntry[]> {
-  return apiFetch<AuditEntry[]>("/api/reviewer/audit");
+  return fetchWithMock("/api/reviewer/audit", (m) => m.MOCK_AUDIT_ENTRIES);
 }

@@ -75,8 +75,9 @@ const AppSidebar: React.FC = () => {
     [pathname]
   );
 
-  // Fetch queue count for badge
+  // Fetch queue count for badge (uses mock fallback if API is down)
   const [queueCount, setQueueCount] = React.useState<number | null>(null);
+  const [isDemo, setIsDemo] = React.useState(false);
 
   useEffect(() => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -86,7 +87,9 @@ const AppSidebar: React.FC = () => {
         if (data?.total != null) setQueueCount(data.total);
       })
       .catch(() => {
-        // Silently fail — badge just won't show
+        // API unreachable — show mock badge count and demo indicator
+        setQueueCount(5);
+        setIsDemo(true);
       });
   }, []);
 
@@ -208,9 +211,9 @@ const AppSidebar: React.FC = () => {
         {showLabels && (
           <div className="mt-auto mb-6 rounded-lg bg-gray-50 p-4 dark:bg-white/[0.03]">
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <div className={`h-2 w-2 rounded-full ${isDemo ? "bg-amber-400" : "bg-emerald-400"} animate-pulse`} />
               <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                API Connected
+                {isDemo ? "Demo Mode" : "API Connected"}
               </span>
             </div>
             <p className="mt-1.5 text-[11px] text-gray-400 dark:text-gray-500">
