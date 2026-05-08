@@ -4,7 +4,10 @@ import React, { useEffect, useState, useCallback } from "react";
 import StatCard from "@/components/ubid/StatCard";
 import SearchSection from "@/components/ubid/SearchSection";
 import ResultsTable from "@/components/ubid/ResultsTable";
+import PipelineCard from "@/components/dashboard/PipelineCard";
+import MatchDistributionChart from "@/components/dashboard/MatchDistributionChart";
 import { fetchSummary, searchUBIDs } from "@/lib/api";
+import { MOCK_ANCHOR_PENDING_COUNT } from "@/lib/mockData";
 import type { SummaryResponse, SearchResult } from "@/lib/api";
 
 /** SVG icon components for stat cards */
@@ -44,15 +47,18 @@ export default function DashboardPage() {
   const [results, setResults] = useState<SearchResult[] | null>(null);
   const [isSearching, setIsSearching] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
+  const [showAnchorBanner, setShowAnchorBanner] = useState(true);
 
   // Fetch summary on mount
-  useEffect(() => {
+  const loadSummary = useCallback(() => {
     fetchSummary()
       .then(setSummary)
       .catch((err) => {
         setSummaryError(err.message || "Failed to load summary");
       });
   }, []);
+
+  useEffect(() => { loadSummary(); }, [loadSummary]);
 
   // Handle search
   const handleSearch = useCallback(async (query: string, pin?: string) => {
@@ -69,7 +75,6 @@ export default function DashboardPage() {
     }
   }, []);
 
-  // Derive review queue count — comes from summary or separate endpoint
   const reviewQueueCount = summary
     ? (summary.status_breakdown.unclassified ?? 0)
     : 0;
@@ -89,36 +94,48 @@ export default function DashboardPage() {
         </p>
       </div>
 
+      {/* ── Anchor-Pending Banner (Feature 8) ─────────────────────── */}
+      {showAnchorBanner && MOCK_ANCHOR_PENDING_COUNT > 0 && (
+        <div className="mb-6 flex items-center justify-between gap-3 rounded-xl bg-amber-50 px-5 py-3.5 text-sm
+          shadow-[rgba(0,0,0,0.06)_0px_0px_0px_1px] dark:bg-amber-900/10 dark:shadow-none dark:border dark:border-amber-800/30">
+          <div className="flex items-center gap-3">
+            <span className="text-amber-600 text-lg">⚠</span>
+            <span className="text-amber-800 dark:text-amber-300">
+              <strong>{MOCK_ANCHOR_PENDING_COUNT}</strong> businesses have no PAN or GSTIN anchor.
+              These UBIDs may need manual verification.
+            </span>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => handleSearch("anchor:pending")}
+              className="rounded-lg bg-amber-600 px-3 py-1.5 text-[12px] font-medium text-white hover:bg-amber-700 transition-colors"
+            >
+              View Pending
+            </button>
+            <button
+              onClick={() => setShowAnchorBanner(false)}
+              className="text-amber-400 hover:text-amber-600 transition-colors"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Stat Cards Grid */}
       <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard
-          title="Total UBIDs"
-          value={summary?.total_ubids ?? 0}
-          icon={<DatabaseIcon />}
-          iconBgClass="bg-[#1E4D58]"
-          subtitle="All registered businesses"
-        />
-        <StatCard
-          title="Active Businesses"
-          value={summary?.status_breakdown.active ?? 0}
-          icon={<CheckCircleIcon />}
-          iconBgClass="bg-emerald-600"
-          subtitle="Currently operating"
-        />
-        <StatCard
-          title="Dormant Businesses"
-          value={summary?.status_breakdown.dormant ?? 0}
-          icon={<PauseCircleIcon />}
-          iconBgClass="bg-amber-500"
-          subtitle="No recent activity"
-        />
-        <StatCard
-          title="Pending Review"
-          value={reviewQueueCount}
-          icon={<ClockIcon />}
-          iconBgClass="bg-gray-500"
-          subtitle="Awaiting classification"
-        />
+        <StatCard title="Total UBIDs" value={summary?.total_ubids ?? 0} icon={<DatabaseIcon />} iconBgClass="bg-[#1E4D58]" subtitle="All registered businesses" />
+        <StatCard title="Active Businesses" value={summary?.status_breakdown.active ?? 0} icon={<CheckCircleIcon />} iconBgClass="bg-emerald-600" subtitle="Currently operating" />
+        <StatCard title="Dormant Businesses" value={summary?.status_breakdown.dormant ?? 0} icon={<PauseCircleIcon />} iconBgClass="bg-amber-500" subtitle="No recent activity" />
+        <StatCard title="Pending Review" value={reviewQueueCount} icon={<ClockIcon />} iconBgClass="bg-gray-500" subtitle="Awaiting classification" />
+      </div>
+
+      {/* ── Pipeline + Distribution (Feature 1) ───────────────────── */}
+      <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <PipelineCard onPipelineComplete={loadSummary} />
+        <MatchDistributionChart />
       </div>
 
       {/* Error banner for summary */}

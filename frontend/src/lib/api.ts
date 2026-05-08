@@ -167,12 +167,20 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
 // ─── Lazy-loaded mock data ──────────────────────────────────────────
 
 let _mockModule: typeof import("./mock-data") | null = null;
+let _mockDataModule: typeof import("./mockData") | null = null;
 
 async function getMock() {
   if (!_mockModule) {
     _mockModule = await import("./mock-data");
   }
   return _mockModule;
+}
+
+async function getMockData() {
+  if (!_mockDataModule) {
+    _mockDataModule = await import("./mockData");
+  }
+  return _mockDataModule;
 }
 
 /**
@@ -213,22 +221,29 @@ export async function fetchReviewerQueue(
   page = 1,
   pageSize = 20
 ): Promise<QueueResponse> {
-  return fetchWithMock(
-    `/api/reviewer/queue?page=${page}&page_size=${pageSize}`,
-    (m) => m.MOCK_QUEUE,
-  );
+  if (!USE_MOCK_FALLBACK) return apiFetch(`/api/reviewer/queue?page=${page}&page_size=${pageSize}`);
+  try {
+    return await apiFetch(`/api/reviewer/queue?page=${page}&page_size=${pageSize}`);
+  } catch {
+    const md = await getMockData();
+    const items = md.MOCK_QUEUE_12;
+    return {
+      items: items as unknown as QueueItem[],
+      total: items.length,
+      has_stale: items.some((i) => i.age_hours > 72),
+      stale_count: items.filter((i) => i.age_hours > 72).length,
+    };
+  }
 }
 
 export async function fetchReviewCase(caseId: string): Promise<ReviewCase> {
-  return fetchWithMock(
-    `/api/reviewer/queue/${caseId}`,
-    (m) => {
-      const found = m.MOCK_REVIEW_CASES[caseId];
-      if (found) return found;
-      const keys = Object.keys(m.MOCK_REVIEW_CASES);
-      return m.MOCK_REVIEW_CASES[keys[0]];
-    },
-  );
+  if (!USE_MOCK_FALLBACK) return apiFetch(`/api/reviewer/queue/${caseId}`);
+  try {
+    return await apiFetch(`/api/reviewer/queue/${caseId}`);
+  } catch {
+    const md = await getMockData();
+    return md.getMockCaseDetail(caseId) as unknown as ReviewCase;
+  }
 }
 
 export async function submitReviewAction(
