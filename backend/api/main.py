@@ -90,7 +90,7 @@ def auto_seed() -> None:
     from backend.resolution.scorer import score_pair, train_model
     from backend.resolution.feature_engineer import compute_features
     from backend.resolution.ubid_assigner import assign_ubids
-    from backend.api.routes.reviewer import seed_reviewer_queue
+    from backend.api.routes.reviewer import seed_reviewer_queue, seed_audit_log
     from backend.api.routes.analytics import load_analytics_data
     from backend.intelligence.classifier import classify_all
     from backend.intelligence.event_ingestion import (
@@ -144,6 +144,12 @@ def auto_seed() -> None:
         (a, b, s, f) for a, b, s, f in scored_pairs if 0.55 <= s < 0.88
     ]
     seed_reviewer_queue(review_pairs)
+
+    # Step 8: Seed audit log with demo decisions (auto-linked pairs as base)
+    auto_linked_pairs = [
+        (a, b, s, f) for a, b, s, f in scored_pairs if s >= 0.88
+    ]
+    seed_audit_log(auto_linked_pairs)
 
     logger.info(
         "Startup complete — %d UBIDs, %d reviewer cases",

@@ -66,6 +66,88 @@ def seed_reviewer_queue(
     logger.info("Seeded reviewer queue with %d cases", len(_reviewer_queue))
 
 
+def seed_audit_log(
+    scored_pairs: list[tuple[CanonicalRecord, CanonicalRecord, float, dict]],
+) -> None:
+    """Seed the audit log with realistic demo entries for the Audit page.
+
+    Takes auto-linked pairs and generates a mix of decisions to show
+    how the audit trail looks in production use.
+    """
+    import random
+    from datetime import timedelta
+
+    _audit_log.clear()
+    random.seed(42)
+
+    decisions = [
+        ("approved", "reviewer_01", "Records match — same PAN and address confirmed"),
+        ("approved", "reviewer_02", "Name spelling differs but GSTIN root matches"),
+        ("approved", "reviewer_01", "Cross-verified with physical inspection records"),
+        ("rejected", "reviewer_02", "Different businesses despite similar names — separate PINs"),
+        ("rejected", "reviewer_01", "Name overlap is coincidence — completely different industries"),
+        ("approved", "reviewer_03", "Address confirmed via BESCOM electricity meter mapping"),
+        ("escalated", "reviewer_02", "Complex multi-branch scenario — needs senior review"),
+        ("approved", "reviewer_01", "Phone number and PAN both match across departments"),
+        ("rejected", "reviewer_03", "One record is a subsidiary, not the parent business"),
+        ("escalated", "reviewer_01", "Possible data entry error in source system"),
+        ("approved", "reviewer_02", "Labour and Factory registrations confirmed same entity"),
+        ("approved", "reviewer_03", "KSPCB clearance matches factory licence holder"),
+        ("rejected", "reviewer_01", "Duplicate within same department — not cross-dept link"),
+        ("approved", "reviewer_02", "Historical records confirm same business after name change"),
+        ("approved", "reviewer_01", "All 4 departments verified — high confidence merge"),
+    ]
+
+    # Use real scored pairs if available, otherwise generate synthetic entries
+    for i, (resolution, reviewer, note) in enumerate(decisions):
+        now = datetime.now(timezone.utc)
+        resolved_at = now - timedelta(hours=random.randint(1, 720))
+
+        if i < len(scored_pairs):
+            rec_a, rec_b, conf, features = scored_pairs[i]
+            record_a_label = f"{rec_a.department}:{rec_a.local_id}"
+            record_b_label = f"{rec_b.department}:{rec_b.local_id}"
+        else:
+            dept_pairs = [
+                ("factories", "shop_est"), ("kspcb", "labour"),
+                ("factories", "kspcb"), ("labour", "shop_est"),
+            ]
+            da, db = dept_pairs[i % len(dept_pairs)]
+            record_a_label = f"{da}:{da[:2].upper()}{random.randint(100, 999)}"
+            record_b_label = f"{db}:{db[:2].upper()}{random.randint(100, 999)}"
+            conf = round(random.uniform(0.55, 0.95), 3)
+            features = {
+                "name_jaro_winkler": round(random.uniform(0.6, 0.99), 3),
+                "name_token_sort_ratio": round(random.uniform(0.5, 0.95), 3),
+                "pin_match": round(random.choice([0.0, 1.0]), 1),
+                "pan_prefix_match": round(random.uniform(0.0, 1.0), 3),
+                "address_token_set_ratio": round(random.uniform(0.3, 0.9), 3),
+                "phone_match": round(random.choice([0.0, 1.0]), 1),
+            }
+
+        ubid = None
+        if resolution == "approved":
+            ubid = f"KA-PAN-{uuid.uuid4().hex[:8].upper()}"
+
+        _audit_log.append({
+            "id": uuid.uuid4().hex,
+            "case_id": uuid.uuid4().hex[:12],
+            "record_a": record_a_label,
+            "record_b": record_b_label,
+            "confidence": conf,
+            "features": features,
+            "resolution": resolution,
+            "reviewer_id": reviewer,
+            "reviewer_note": note,
+            "resolved_at": resolved_at.isoformat(),
+            "ubid": ubid,
+        })
+
+    # Sort by resolved_at descending (most recent first)
+    _audit_log.sort(key=lambda x: x["resolved_at"], reverse=True)
+    logger.info("Seeded audit log with %d demo entries", len(_audit_log))
+
+
 def _record_to_detail(rec: CanonicalRecord) -> RecordDetail:
     """Convert a CanonicalRecord into a RecordDetail with normalised values."""
     return RecordDetail(
