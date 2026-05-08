@@ -59,7 +59,7 @@ def load_analytics_data(ubid_map: dict[str, str], records: list) -> None:
             _ubid_registry[ubid] = {
                 "ubid": ubid,
                 "anchor_type": "PAN" if ubid.startswith("KA-PAN") else
-                               "GST" if ubid.startswith("KA-GST") else "INT",
+                               "GSTIN" if ubid.startswith("KA-GST") else "INT",
                 "linked_records": [],
             }
         _ubid_registry[ubid]["linked_records"].append(record_key)

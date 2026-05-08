@@ -83,7 +83,7 @@ class QueueResponse(BaseModel):
 class ReviewAction(BaseModel):
     """Payload for approve/reject/defer/escalate actions."""
 
-    reviewer_id: str = "system"             # Fix 3: default changed
+    reviewer_id: str = "reviewer_01"        # Fix 3: default reviewer
     note: Optional[str] = None
     reason: Optional[str] = None            # Fix 3: accept both
 

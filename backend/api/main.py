@@ -4,6 +4,7 @@ Minimal app with PostgreSQL connectivity check on startup.
 """
 import logging
 import os
+from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -48,7 +49,7 @@ app = FastAPI(
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -156,6 +157,12 @@ def auto_seed() -> None:
         len(unique_ubids), len(review_pairs),
     )
 
+    # Record initial pipeline run for /api/resolution/status
+    global _last_pipeline_run, _last_pipeline_duration, _last_ubids_total, _last_records_processed
+    _last_pipeline_run = datetime.now(timezone.utc).isoformat()
+    _last_ubids_total = len(unique_ubids)
+    _last_records_processed = len(all_records)
+
 
 @app.get("/", tags=["health"])
 def health_check() -> dict:
@@ -191,7 +198,13 @@ def adapters_health() -> dict:
 
 @app.post("/api/resolution/run", tags=["resolution"])
 def run_resolution_pipeline() -> dict:
-    """Trigger the full resolution pipeline: ingest → block → score → assign."""
+    """Trigger the full resolution pipeline: ingest → block → score → assign.
+
+    After assignment, wire analytics data stores, generate lifecycle events,
+    and run classification so all downstream APIs return fresh data.
+    """
+    import time as _time
+
     from backend.adapters.shop_establishment import ShopEstablishmentAdapter
     from backend.adapters.factories import FactoriesAdapter
     from backend.adapters.labour import LabourAdapter
@@ -200,6 +213,17 @@ def run_resolution_pipeline() -> dict:
     from backend.resolution.scorer import score_pair, explain_pair, train_model
     from backend.resolution.feature_engineer import compute_features
     from backend.resolution.ubid_assigner import assign_ubids
+    from backend.api.routes.reviewer import seed_reviewer_queue, seed_audit_log
+    from backend.api.routes.analytics import load_analytics_data
+    from backend.intelligence.classifier import classify_all
+    from backend.intelligence.event_ingestion import (
+        generate_lifecycle_events, get_all_events, clear_events,
+    )
+    from backend.intelligence.attribution import load_ubid_mapping, attribute_all
+
+    global _last_pipeline_run, _last_pipeline_duration, _last_ubids_total, _last_records_processed
+
+    t0 = _time.time()
 
     # Step 1: Ingest from all adapters
     all_records = []
@@ -224,14 +248,52 @@ def run_resolution_pipeline() -> dict:
 
     # Step 5: Assign UBIDs
     result = assign_ubids(all_records, scored_pairs)
+    unique_ubids = list(set(result.ubid_map.values()))
 
-    # Step 6: Seed reviewer queue with review-band pairs
-    from backend.api.routes.reviewer import seed_reviewer_queue
+    # Step 6: Wire analytics data stores (Part B)
+    load_analytics_data(result.ubid_map, all_records)
+
+    # Step 7: Generate lifecycle events (40% active, 40% dormant, 20% closed)
+    clear_events()
+    generate_lifecycle_events(
+        result.ubid_map,
+        target_active_pct=0.40,
+        target_dormant_pct=0.40,
+    )
+
+    # Step 8: Attribute events to UBIDs
+    load_ubid_mapping(result.ubid_map)
+    all_events = get_all_events()
+    attribute_all(all_events)
+
+    # Step 9: Classify all UBIDs (Active/Dormant/Closed)
+    classify_all(unique_ubids)
+
+    # Step 10: Seed reviewer queue with review-band pairs
     review_pairs = [
         (ra, rb, sc, ft) for ra, rb, sc, ft in scored_pairs
         if 0.55 <= sc < 0.88
     ]
     seed_reviewer_queue(review_pairs)
+
+    # Step 11: Seed audit log
+    auto_linked_pairs = [
+        (a, b, s, f) for a, b, s, f in scored_pairs if s >= 0.88
+    ]
+    seed_audit_log(auto_linked_pairs)
+
+    duration = round(_time.time() - t0, 1)
+
+    # Update module-level pipeline status
+    _last_pipeline_run = datetime.now(timezone.utc).isoformat()
+    _last_pipeline_duration = duration
+    _last_ubids_total = len(unique_ubids)
+    _last_records_processed = len(all_records)
+
+    logger.info(
+        "Pipeline complete — %d UBIDs, %d records, %.1fs",
+        len(unique_ubids), len(all_records), duration,
+    )
 
     return {
         "total_records": len(all_records),
@@ -239,5 +301,28 @@ def run_resolution_pipeline() -> dict:
         "auto_linked": len(result.auto_linked),
         "review_queue": len(result.review_queue),
         "separate": len(result.separate),
-        "unique_ubids": len(set(result.ubid_map.values())),
+        "unique_ubids": len(unique_ubids),
+        "duration_seconds": duration,
     }
+
+
+# ---------------------------------------------------------------------------
+# Pipeline status tracking (Part D)
+# ---------------------------------------------------------------------------
+_last_pipeline_run: str = ""
+_last_pipeline_duration: float = 0.0
+_last_ubids_total: int = 0
+_last_records_processed: int = 0
+
+
+@app.get("/api/resolution/status", tags=["resolution"])
+def resolution_status() -> dict:
+    """Return the current pipeline status and last run metadata."""
+    return {
+        "status": "idle",
+        "last_run": _last_pipeline_run or None,
+        "ubids_total": _last_ubids_total,
+        "records_processed": _last_records_processed,
+        "duration_seconds": _last_pipeline_duration,
+    }
+

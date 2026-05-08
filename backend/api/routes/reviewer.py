@@ -329,6 +329,7 @@ def _resolve_case(case_id: str, resolution: str, action: ReviewAction) -> Action
     }
 
     # For approvals, generate a shared UBID
+    ubid = None
     if resolution == "reviewer_approved":
         rec_a: CanonicalRecord = case["record_a"]
         rec_b: CanonicalRecord = case["record_b"]
@@ -341,11 +342,17 @@ def _resolve_case(case_id: str, resolution: str, action: ReviewAction) -> Action
     # Find next case
     next_id = _next_pending_case(exclude_id=case_id)
 
-    # Fix 4: add success + message
+    # Fix 4: descriptive status + message with UBID
+    status_label = resolution.replace("reviewer_", "")  # "approved", "rejected", etc.
+    if ubid:
+        message = f"Case {status_label}. UBID {ubid} assigned."
+    else:
+        message = f"Case {status_label} and logged."
+
     return ActionResponse(
         success=True,
-        message=f"Case {case_id} {resolution} successfully",
-        status="ok",
+        message=message,
+        status=status_label,
         case_id=case_id,
         resolution=resolution,
         next_case_id=next_id,
