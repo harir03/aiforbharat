@@ -1,5 +1,38 @@
 "use client";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, Component, type ErrorInfo, type ReactNode } from "react";
+
+/* ─── ErrorBoundary ─────────────────────────────────────────────────── */
+interface EBState { hasError: boolean; error: string }
+class DetailErrorBoundary extends Component<{ children: ReactNode }, EBState> {
+  state: EBState = { hasError: false, error: "" };
+  static getDerivedStateFromError(err: Error) {
+    return { hasError: true, error: err.message || "Unknown error" };
+  }
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error("DetailErrorBoundary caught:", error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="rounded-xl bg-red-50 dark:bg-red-900/20 p-6 text-center border border-red-200 dark:border-red-800">
+          <p className="text-sm font-medium text-red-700 dark:text-red-300">
+            Failed to render UBID detail
+          </p>
+          <p className="mt-1 text-[12px] text-red-500 dark:text-red-400">
+            {this.state.error}
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false, error: "" })}
+            className="mt-3 rounded-lg bg-red-100 px-3 py-1.5 text-[12px] font-medium text-red-700 hover:bg-red-200 transition-colors dark:bg-red-800/50 dark:text-red-300"
+          >
+            Try again
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 import UbidSearchBar from "@/components/analytics/UbidSearchBar";
 import UbidDetailCard from "@/components/analytics/UbidDetailCard";
 import EventTimeline from "@/components/analytics/EventTimeline";
@@ -134,21 +167,23 @@ export default function AnalyticsPage() {
       {loadingDetail && <AnalyticsSkeleton />}
 
       {!loadingDetail && detail && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left: Detail + Classification */}
-          <div className="lg:col-span-2 space-y-6">
-            <UbidDetailCard detail={detail} />
-            <ClassificationCard
-              status={detail.classification?.status || detail.status}
-              confidence={detail.classification?.confidence || detail.confidence}
-              shapValues={detail.classification?.shap_values}
-            />
+        <DetailErrorBoundary>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Left: Detail + Classification */}
+            <div className="lg:col-span-2 space-y-6">
+              <UbidDetailCard detail={detail} />
+              <ClassificationCard
+                status={detail.classification?.status || detail.status || "active"}
+                confidence={detail.classification?.confidence ?? detail.confidence ?? 0}
+                shapValues={detail.classification?.shap_values}
+              />
+            </div>
+            {/* Right: Timeline */}
+            <div>
+              <EventTimeline events={events} />
+            </div>
           </div>
-          {/* Right: Timeline */}
-          <div>
-            <EventTimeline events={events} />
-          </div>
-        </div>
+        </DetailErrorBoundary>
       )}
 
       {!loadingDetail && !detail && selectedUbid && (

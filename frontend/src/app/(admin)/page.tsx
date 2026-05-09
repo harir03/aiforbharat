@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { Suspense, useEffect, useState, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import StatCard from "@/components/ubid/StatCard";
 import SearchSection from "@/components/ubid/SearchSection";
 import ResultsTable from "@/components/ubid/ResultsTable";
@@ -41,6 +42,16 @@ const ClockIcon = () => (
   </svg>
 );
 
+/** Inner component that reads search params — must be in Suspense */
+function SearchParamsTrigger({ onSearch }: { onSearch: (q: string) => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) onSearch(q);
+  }, [searchParams, onSearch]);
+  return null;
+}
+
 export default function DashboardPage() {
   const [summary, setSummary] = useState<SummaryResponse | null>(null);
   const [summaryError, setSummaryError] = useState<string | null>(null);
@@ -75,12 +86,19 @@ export default function DashboardPage() {
     }
   }, []);
 
+
+
   const reviewQueueCount = summary
     ? (summary.status_breakdown.unclassified ?? 0)
     : 0;
 
   return (
     <>
+      {/* Auto-search from header search bar URL param */}
+      <Suspense fallback={null}>
+        <SearchParamsTrigger onSearch={handleSearch} />
+      </Suspense>
+
       {/* Page header */}
       <div className="mb-6">
         <h1

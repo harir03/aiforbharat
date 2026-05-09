@@ -22,6 +22,9 @@ const ANCHOR_LABELS: Record<string, { label: string; color: string }> = {
 
 export default function UbidDetailCard({ detail }: UbidDetailCardProps) {
   const anchor = ANCHOR_LABELS[detail.anchor_type] || ANCHOR_LABELS.INT;
+  const departments = Array.isArray(detail.departments) ? detail.departments : [];
+  const confidence = typeof detail.confidence === "number" ? detail.confidence : 0;
+  const linkedRecords = Array.isArray(detail.linked_records) ? detail.linked_records : [];
 
   return (
     <div className="rounded-xl bg-white p-6
@@ -52,7 +55,7 @@ export default function UbidDetailCard({ detail }: UbidDetailCardProps) {
           Linked Departments
         </p>
         <div className="flex flex-wrap gap-2">
-          {detail.departments.map((dept) => {
+          {departments.map((dept) => {
             const color = DEPT_COLORS[dept] || { bg: "bg-gray-100", text: "text-gray-600" };
             return (
               <span
@@ -60,10 +63,13 @@ export default function UbidDetailCard({ detail }: UbidDetailCardProps) {
                 className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[12px] font-medium ${color.bg} ${color.text}`}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60" />
-                {dept.replace("_", " & ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                {String(dept).replace("_", " & ").replace(/\b\w/g, (l) => l.toUpperCase())}
               </span>
             );
           })}
+          {departments.length === 0 && (
+            <span className="text-[12px] text-gray-400 italic">No departments linked</span>
+          )}
         </div>
       </div>
 
@@ -72,13 +78,13 @@ export default function UbidDetailCard({ detail }: UbidDetailCardProps) {
         <div>
           <p className="text-[11px] text-gray-400">Confidence</p>
           <p className="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">
-            {(detail.confidence * 100).toFixed(1)}%
+            {(confidence * 100).toFixed(1)}%
           </p>
         </div>
         <div>
           <p className="text-[11px] text-gray-400">Linked Records</p>
           <p className="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">
-            {detail.linked_records?.length || 0}
+            {linkedRecords.length}
           </p>
         </div>
       </div>
